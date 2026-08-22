@@ -1,0 +1,315 @@
+% -*- TeX:SI -*-
+% slovene sub-mode for spell check
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX predloga za zaključna dela
+% Univerza v Ljubljani, Fakulteta za elektrotehniko
+% Zbral in uredil: Roman Kamnik, junij 2013
+% Dopolnil: Sebastjan Šlajpah (2013), Sašo Tomažič (2013), Peter Miklavčič (2019), Peter Kmecl (2023)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,twoside,openright,12pt,slovene]{book}
+\usepackage[pdftex]{./Izgled/UNI-LJ-FE-Diploma} % stil zaključnega dela UL FE
+\usepackage[utf8]{inputenc} % predloga uporablja standardno kodiranje Unicode UTF-8, ki podpira šumnike
+\usepackage[greek,english,slovene]{babel} % seznam uporabljenih jezikov (zadnji na seznamu je primarni)
+
+% PDF/A %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Več o PDF/A v LaTeX-u: https://www.mathstat.dal.ca/~selinger/pdfa/
+\usepackage{filecontents}
+\usepackage{svg}
+\usepackage{amsmath}
+\begin{filecontents*}{\jobname.xmpdata}
+    \Title{Navodila in predloga za izdelavo zaključnega dela} % Mora biti enak kot je v prijavi teme!
+    \Author{Ime in priimek avtorja} % Mora biti enak kot na naslovnici!
+\end{filecontents*}
+\usepackage[a-1b]{pdfx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% LaTeX PAKETI %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Kompakten pregled LaTeX ukazov je dostopen na https://en.wikibooks.org/wiki/Category:Book:LaTeX
+% Navodila posameznih uporabljenih paketov so dostopna na https://www.ctan.org
+
+% Dodatni simboli
+\usepackage{textcomp}                               % dodatni simboli (kot npr. €)
+\usepackage{gensymb}                                % dodatni simboli \de­gree, \cel­sius, \pert­hou­sand, \mi­cro, \ohm
+\newcommand{\uppi}{\textrm{\greektext p\latintext}} % velika grška črka P z \uppi, alternativa simbolu \Pi
+
+% Osnovno oblikovanje
+\hypersetup{unicode,hidelinks,breaklinks,hyperindex} % dodatne možnosti hiperpovezav
+\usepackage[normalem]{ulem}                          % podčrtavanje in prečrtavanje teksta
+\usepackage{float}                                   % dodatne možnosti oblikovanja objektov
+\usepackage{enumitem}                                % dodatne možnosti oblikovanja seznamov
+
+% Dodatno oblikovanje
+%\zamaknirobsodihstrani{0mm} % dodatna prilagoditev levega roba sodih strani za dvostranski tisk
+%\usepackage{dcolumn}        % poravnava po decimalnih mestih v tabelah
+\usepackage{longtable}      % večstranske tabele
+%\usepackage{caption}        % dodatne možnosti označevanja objektov
+%\usepackage{rotating}       % vretenje objektov, strani, ipd.
+
+% Matematična orodja
+\usepackage{mathtools} % http://mirrors.ctan.org/macros/LaTeX/contrib/mathtools/mathtools.pdf
+\usepackage{bm}        % ukaz za odebeljeni tisk \bm v matematičnih okoljih
+%\usepackage{cancel}   % ukaz za prečrtavanje \cancel v matematičnih okoljih
+
+% Grafična orodja
+\usepackage{graphicx}                 % vključevanje bitnih slik z ukazom \includegraphics
+\usepackage{grffile}                  % podpora presledkom pri ukazu \includegraphics
+%\usepackage{tikz}                    % paket TikZ za risanje (npr. blokovnih shem, diagramov poteka, itd.)
+%\usetikzlibrary{calc,shapes,arrows}  % dodatne možnosti paketa TikZ
+%\usepackage{tikzscale}               % skaliranje risb
+%\usepackage[smartlabels]{circuitikz} % risanje shem vezij
+%\usepackage{pgfplots}                % paket PGFPlots za risanje grafov, tudi iz CSV in podobnih datotek
+%\usepgfplotslibrary{polar,external}  % dodatne možnosti paketa PGFPlots
+%\usepackage{tikz-3dplot}             % 3D risanje
+% Primeri: http://texample.net , http://pgfplots.net/tikz/examples , http://pgfplots.sourceforge.net/gallery.html
+
+% Vključevanje datotek
+\usepackage{pdfpages} % vključevanje PDF datotek z ukazom \includegraphics
+\usepackage{epstopdf} % vključevanje EPS datotek z ukazom \includegraphics
+\usepackage{listings} % orodja za izpisovanje programske kode
+\lstset{              % nastavitve orodja za izpisovanje programske kode
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    numbers=left,
+    numberstyle=\scriptsize,
+    keywordstyle=\color{blue},
+    commentstyle=\color{unilj},
+    stringstyle=\color{olive},
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% DEKLARACIJE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\naslov{Navodila in predloga za izdelavo zaključnega dela} % Mora biti enak kot je v prijavi teme!
+\avtor{Ime in priimek avtorja} % Mora se ujemati s \Title pri metapodatkih PDF/A!
+\mentor{Naziv ter ime in priimek mentorja}
+%\somentor{Naziv, ime in priimek somentorja}
+\date{Ljubljana, \the\year}
+\univerza{Univerza v Ljubljani}
+\definecolor{unilj}{cmyk}{0.00, 0.94, 0.94, 0.06} % barva Univerze v Ljubljani
+
+% Potrebno je paziti, da je izbrana prava kombinacija tipa dela in sodelujočih fakultet glede na študijski program!
+\delo{Diplomsko delo\\~\\Univerzitetni študijski program prve stopnje Elektrotehnika}
+%\delo{Diplomsko delo\\~\\Univerzitetni študijski program prve stopnje Multimedija}
+%\delo{Diplomsko delo\\~\\Visokošolski strokovni študijski program\\prve stopnje Aplikativna elektrotehnika}
+%\delo{Diplomsko delo\\~\\Visokošolski strokovni študijski program\\prve stopnje Multimedijske komunikacije}
+%\delo{Magistrsko delo\\~\\Magistrski študijski program druge stopnje Elektrotehnika}
+%\delo{Magistrsko delo\\~\\Magistrski študijski program druge stopnje Uporabna statistika}
+\fakulteta{Fakulteta za elektrotehniko}
+%\fakulteta{Fakulteta za elektrotehniko,\\Fakulteta za računalništvo in informatiko} % Za program Multimedija
+%\fakulteta{Fakulteta za elektrotehniko, Biotehniška fakulteta,\\Ekonomska fakulteta, Fakulteta za družbene vede,\\Fakulteta za matematiko in fiziko, Fakulteta za\\računalništvo in informatiko, Medicinska fakulteta} % Za program Uporabna statistika
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% DOKUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\frontmatter
+
+\selectlanguage{slovene}
+
+%******************************* NASLOVNICA ************************************
+\maketitle
+
+%******************************* ZAHVALA ***************************************
+\zahvala
+V zahvali se kandidat lahko zahvali mentorju in poimensko tudi vsem sodelavcem in prijateljem, ki so pomagali in prispevali pri delu v laboratoriju, na računalniku, v delavnici, pri tehnični izdelavi dela ali drugje.
+
+%******************************* POVZETEK IN KLJUČNE BESEDE ********************
+\povzetek
+V tem dokumentu so predstavljena navodila za izdelavo zaključnega dela na Fakulteti za elektrotehniko v Ljubljani. Zaključno delo predstavlja diplomsko delo na prvi in magistrsko delo na drugi stopnji izobraževalnega programa.
+
+V povzetku v slovenščini in v angleščini kandidat navede glavne rezultate dela, zato naj povzetek seznani bralca z jedrom dela na način, ki je običajen za pisanje krajših člankov ali referatov. Obseg povzetka je za Repozitorij Univerze v Ljubljani omejen na 20.000 znakov.
+
+Povzetek se prične z opisom in definicijo problema. Nadaljuje se z opisom uporabljenih metod in postopkov, ki so privedli do rešitve. Na koncu so opisani rezultati dela in glavni zaključki, ki iz rezultatov izhajajo.
+
+Za povzetkom se na isti strani navede še ključne besede.
+
+\kljucnebesede
+beseda1, beseda2, ...
+
+\selectlanguage{english}
+
+%******************************* ABSTRACT AND KEYWORDS *************************
+
+\abstract
+The thesis addresses...
+
+\keywords
+word1, word2, ...
+
+\selectlanguage{slovene}
+
+%******************************* KAZALO ****************************************
+\tableofcontents
+
+%******************************* SEZNAM SLIK, SEZNAM TABEL *********************
+\seznamslik
+\seznamtabel
+
+%******************************* SEZNAM SIMBOLOV *******************************
+\seznamsimbolov
+V pričujočem zaključnem delu so uporabljene naslednje veličine in simboli:
+
+\begin{center}
+    \begin{tabular}{*{4}{l}} \hline
+        \multicolumn{2}{c}{\bf{Veličina / oznaka}}           & \multicolumn{2}{c}{\bf{Enota}} \\ \hline
+        Ime                & Simbol                          & Ime      & Simbol              \\ \hline
+        čas                & $t$                             & sekunda  & s                   \\
+        frekvenca          & $f$                             & Hertz    & Hz                  \\
+        tlak               & $p$                             & Pascal   & Pa                  \\
+        sila vzgona        & $\textbf{\textit{F}}_\text{vz}$ & Newton   & N                   \\
+        gostota            & $\rho$                          & -        & kg/m$^3$            \\
+        masa               & $m$                             & kilogram & kg                  \\
+        vhodna napestost   & $U_\text{vh}$                   & volt     & V                   \\
+        Jacobijeva matrika & $\mathbf{J}$                    & -        & -                   \\ \hline
+    \end{tabular}
+\end{center}
+
+Pri čimer so vektorji in matrike zapisani s poudarjeno pisavo. Natančnejši pomen simbolov ter njihovih indeksov je razviden iz ustreznih slik ali pa je pojasnjen v spremljajočem besedilu, kjer je simbol uporabljen.
+
+\seznamkratic
+V pričujočem zaključnem delu so uporabljene naslednje kratice:
+
+\begin{center}
+    \begin{longtable}{p{2.5cm}|p{11cm}} \hline %Dolga tabela kratic (večstranska)
+        Kratica                & Pomen              \\ \hline\endhead %Glava, ki se ponovi na začetku vsake strani tabele
+        \hline\endfoot %Zaključek tabele na vsaki strani
+        %Začetek vsebine tabele
+        UL                 & Univerza v Ljubljani                                          \\
+        FE                 & Fakulteta za elektrotehniko                            \\
+        SIST               & Slovenski inštitut za standardizacijo                        \\
+        ISO                & angl. International Organization for Standardization (Mednarodna organizacija za standardizacijo)\\
+        PVC                & polivinilklorid                               \\
+        I2C                & angl. Inter-integrated circuit                                             \\
+        %konec vsebine tabele
+    \end{longtable}
+\end{center}
+
+
+
+\mainmatter
+
+%******************************* UVOD ******************************************
+\chapter{Uvod} \label{uvod}
+
+Magistersko delo je nastalo v sodelovanju s podjetjem Iskraemeco~d.d. v oddelku
+Razvoj in raziskave, ki se ukvarja z razvojem pametnih števcev električne energije
+(ang. smart energy meter) in njihovih izmenljivih modulov. 
+Grobo arhitekturo pametnega števca prikazuje slika 
+\begin{figure}[h]
+    \centering
+    \includesvg[width=0.75\columnwidth]{Slike/blok_shema_stevec.svg}
+    \caption{My SVG graphic}
+\end{figure}
+
+
+Pametni števci električne energije imajo poleg merjenja energije še druge funkcije kot so na primer: 
+\begin{itemize}[noitemsep]
+    \item daljinsko odčitavanje in parametriranje,
+    \item možnost posodobitve  delov vgrajene programske opreme (DFOTA),
+    \item obveščanje električne distribucije o dogodkih in izpadih na NN omrežju (funkcija last gasp),
+    \item krmiljenje zunanjih naprav preko signalnih vhodov in izhodov
+    \item zaznavanje, odčitavanje in komunikacija z vodnimi in plinskimi števci preko različnih protokolov (RS-485, Mbus, WmBus)
+    \item detekcija nepooblaščenega vdora v števec
+\end{itemize}
+Večina pametnih števcev družine IE.X podjetja Iskraemeco d.d. ima modularno zasnovo, ki omogoča izmenjavo komunikacijskega modula tudi po tem, ko je števec že nameščen pri končnem uporabniku. To kasneje v življenski dobi števca omogoča nadgradnjo komunikacijskega modula, prav tako pa se lahko distribucija že v štartu izvedbe projekta odloči za več različnih možnosti komunikacije.
+    
+Cilj magistrske naloge je opisati razvoj komunikacijskega modula za števce družine IE.X 
+
+
+%******************************* POGLAVJA **************************************
+
+\chapter{Primerjava mobilnih omrežij za odčitavanje števcev} \label{Primerjava mobilnih omrežij za odčitavanje števcev}
+    V podjetju Iskraemecu se za odčitavanje števcev trenutno uporabljajo naslednja mobilna omrežja: 
+    \begin{itemize}[noitemsep]
+    \item 2G
+    \item EDGE
+    \item 3G
+    \item LTE
+    \item NB-IoT
+    \item LTE-M
+    \end{itemize}
+\section{Omrežja druge generacije} \label{2G}
+Omrežja druge generacije (2G) temeljijo na sistemu GSM, ki je bil prvič implementiran leta 1991 kot tokovno komutirano omrežje, primarno namenjeno glasovni telefoniji. Frekvenčni spekter danes še vedno uporabljanega dela sistema GSM je razdeljen na 25 MHz široke pasove \cite{web_page}, pri čemer je vsak pas nadalje razdeljen na 125 kanalov s pasovno širino 200 kHz. Kanali so označeni z identifikacijsko številko ARFCN. Dodatno je v uporabi še časovna multipleksacija (TDMA), ki vsak posamezen frekvenčni kanal razdeli na osem časovnih rež, uporabljena modulacijska tehnika pa je GMSK (Gaussian Minimum Shift Keying). Nazivna hitrost prenosa podatkov v osnovnem GSM sistemu znaša 9,6 kbps.
+
+Sistem GPRS (General Packet Radio Service, t. i. 2.5G) je bil razvit kot nadgradnja GSM, pri čemer uvaja paketno komutirano prenosno tehniko namesto izključno tokovno komutirane. Odvisno od uporabljenega kodnega načina in razpoložljivega števila časovnih rež znaša hitrost prenosa podatkov med približno 56 in 114 kbps (https://en.wikipedia.org/wiki/GPRS) \cite{ETSI_TS_101_350}.
+
+Tehnologija EDGE (Enhanced Data rates for GSM Evolution, t. i. 2.75G) predstavlja nadaljnjo nadgradnjo GPRS. Poleg modulacije GMSK uporablja še modulacijsko shemo 8PSK (8-Phase Shift Keying), kar omogoča bistveno večjo podatkovno prepustnost. Največja teoretična hitrost prenosa podatkov lahko doseže do 473,6 kbps, pri čemer se še vedno uporablja isti frekvenčni spekter kot v sistemih GSM in GPRS \cite{GPRS}.
+
+    
+     \begin{table}[htbp]
+        \centering
+        \caption{GSM frekvenčni pasovi}
+        \label{tab:gsm_bands}
+        \begin{tabular}{|l|c|c|c|}
+        \hline
+        \shortstack{\textbf{GSM Band}\\\textbf{[MHz]}} &
+        \shortstack{\textbf{Uplink}\\\textbf{[MHz]}} &
+        \shortstack{\textbf{Downlink}\\\textbf{[MHz]}} &
+        \shortstack{\textbf{Band Width}\\\textbf{[MHz]}} \\
+        \hline
+        \hline
+        GSM850        & 824--849   & 869--894   & 128--251 \\
+        \hline
+        GSM900 (P-GSM)& 890--915   & 935--960   & 1--124 \\
+        \hline
+        GSM900 (E-GSM)& 880--915   & 925--960   & 975--1023, 0--124 \\
+        \hline
+        GSM900 (R-GSM)& 876--880   & 921--925   & 940--974, 0--124 \\
+        \hline
+        GSM1800       & 1710--1785 & 1805--1880 & 512--885 \\
+        \hline
+        GSM1900       & 1850--1910 & 1930--1990 & 512--810 \\
+        \hline
+        \end{tabular}
+    \end{table}
+
+\section{Omrežja tretje generacije} \label{sec:3g}
+    
+\section{Omrežja četrte generacije} \label{sec:4g}
+    LTE je 3GPP razvil kot naslednika omrežij UMTS in HSPA v okviru specifikacij Release~8 (2008). Uporablja modulacijo OFDMA v smeri proti uporabniku in SC-FDMA v smeri od uporabnika. Promet v LTE poteka izključno paketno prek protokola IP. Podpira več pasovnih širin, od 1{,}4~MHz do 20~MHz; v konfiguraciji SISO je teoretična največja hitrost prenosa pri 20~MHz do 100~Mb/s v smeri proti uporabniku in do 50~Mb/s v smeri od uporabnika.
+
+    Iz LTE sta se kasneje razvila LTE Cat~1, namenjen napravam, ki ne potrebujejo velikih hitrosti prenosa podatkov, ter (z Release~13) LTE Cat~1bis, ki dodatno poenostavi strojno opremo zaradi uporabe ene antene namesto dveh, predpisanih pri LTE Cat~1 \cite{ETSI_TS_136_306_V13.5}. LTE-M (LTE Cat-M1) je predstavljen v Release~12 kot standard LPWA, namenjen predvsem IoT- in M2M-povezavam ter baterijsko napajanim napravam \cite{LTE-M}. Pasovna širina je 1{,}4~MHz, hitrost prenosa podatkov pa do približno 1~Mb/s.
+
+    V Release~13 je opisan Narrowband Internet of Things (NB-IoT), ki omogoča še nižjo porabo energije in večjo prodornost, vendar v zameno za počasnejši prenos podatkov in daljše zakasnitve \cite{NBIoT}. Za odčitavanje in parametriranje pametnega števca se je po izkušnjah bolje izkazal LTE Cat-M1, saj zaradi višje hitrosti prenosa podatkov olajša nadgradnjo vdelane programske opreme (FOTA) ter branje večje količine podatkov \cite{Trendi_komunikacijskih_tehnologij}. Poleg tega je LTE Cat-M1 primernejši z vidika menjave operaterja in uporabe kartice eSIM kartice namesto klasične (2FF) kartice SIM .
+
+\begin{table}[htbp]
+    \centering
+    \caption{Najpogosteje uporabljeni LTE frekvenčni pasovi v Evropi}
+    \label{tab:lte_bands}
+    \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \textbf{Band} &
+    \textbf{Mode} &
+    \shortstack{\textbf{Uplink}\\\textbf{[MHz]}} &
+    \shortstack{\textbf{Downlink}\\\textbf{[MHz]}} &
+    \shortstack{\textbf{Band Width}\\\textbf{[MHz]}} \\
+    \hline
+    \hline
+    1  & FDD & 1920--1980 & 2110--2170    & 60 \\
+    \hline
+    3  & FDD & 1710--1785 & 1805--1880 & 75 \\
+    \hline
+    7  & FDD & 2500--2570 & 2620--2690 & 70 \\
+    \hline
+    8  & FDD & 880--915   & 925--960    & 35 \\
+    \hline
+    20 & FDD & 832--862   & 791--821    & 30 \\
+    \hline
+    28 & FDD & 703--748   & 758--803   & 745 \\
+    \hline
+    \end{tabular}
+\end{table}
+    
+
+
+\begin{enumerate}
+
+
+
+
+\cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{Literatura} % vnos literature v kazalo
+
+% 1. način: BibTeX
+\bibliographystyle{./Izgled/ieeetrslo}
+\bibliography{literatura}
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
