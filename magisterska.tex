@@ -191,7 +191,12 @@ V pričujočem zaključnem delu so uporabljene naslednje kratice:
 
 Magistersko delo je nastalo v sodelovanju s podjetjem Iskraemeco~d.d. v oddelku
 Razvoj in raziskave, ki se ukvarja z razvojem pametnih števcev električne energije
-(ang. smart energy meter) in njihovih izmenljivih modulov. Poenostavljeno arhitekturo pametnega števca prikazuje slika \ref{blok_shema_stevec}.
+(ang. smart energy meter) in njihovih izmenljivih modulov. 
+Pametni števec imajo poleg funkcij za merjenje električne energije tudi vlogo zbiranja in pošiljanje podatkov iz drugih merilnih naprav v gospodinjstvu (npr. vodni števec, kalorimeter, števec plina) \cite{skalar_zasnova_nodate}. V večini primerov podatke iz drugih merilnih naprav zbirajo preko lokalnih žičnih in brezzičnih omrežij (M-Bus, wM-Bus, RS-485), agregiranje podatke pa nato pošljejo naprej preko komunikacije po elektroenergetskem omrežju (G3-PLC) ali pa preko mobilnega omrežja (GPRS,LTE-M, Nb-IoT). 
+Večina pametnih števcev družine IE.X podjetja Iskraemeco d.d. ima modularno zasnovo, ki omogoča izmenjavo komunikacijskega modula tudi po tem, ko je števec že nameščen pri končnem uporabniku. To kasneje v življenski dobi števca omogoča nadgradnjo komunikacijskega modula, prav tako pa se lahko distribucija že v štartu izvedbe projekta odloči za več različnih možnosti komunikacije.
+
+Poenostavljeno arhitekturo pametnega števca prikazuje slika \ref{blok_shema_stevec}.
+
 \begin{figure}[h]
     \centering
     \includesvg[
@@ -199,6 +204,20 @@ Razvoj in raziskave, ki se ukvarja z razvojem pametnih števcev električne ener
     ]{Slike/blok_shema_stevc.svg}
     \caption{\label{blok_shema_stevec} Poenostavljenja arhitektura pametnega števca. }
 \end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includesvg[
+    width=0.8\columnwidth,
+    ]{Slike/blok_shema_stevc.svg}
+    \caption{\label{blok_shema_stevec} Poenostavljenja arhitektura pametnega števca. }
+\end{figure}
+
+
+
+    
+Cilj magistrske naloge je opisati razvoj komunikacijskega modula za števce družine IE.X 
+
 Komunikacijski modem števcu omogoča naslednje funkcije:
 \begin{itemize}[noitemsep]
     \item daljinsko odčitavanje in parametriranje,
@@ -206,9 +225,6 @@ Komunikacijski modem števcu omogoča naslednje funkcije:
     \item obveščanje električne distribucije o dogodkih in izpadih na NN omrežju (funkcija last gasp),
 
 \end{itemize}
-Večina pametnih števcev družine IE.X podjetja Iskraemeco d.d. ima modularno zasnovo, ki omogoča izmenjavo komunikacijskega modula tudi po tem, ko je števec že nameščen pri končnem uporabniku. To kasneje v življenski dobi števca omogoča nadgradnjo komunikacijskega modula, prav tako pa se lahko distribucija že v štartu izvedbe projekta odloči za več različnih možnosti komunikacije.
-    
-Cilj magistrske naloge je opisati razvoj komunikacijskega modula za števce družine IE.X 
 
 
 %******************************* POGLAVJA **************************************
