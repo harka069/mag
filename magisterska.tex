@@ -16,6 +16,7 @@
 \usepackage{filecontents}
 \usepackage{svg}
 \usepackage{amsmath}
+\usepackage{comment}
 \begin{filecontents*}{\jobname.xmpdata}
     \Title{Navodila in predloga za izdelavo zaključnega dela} % Mora biti enak kot je v prijavi teme!
     \Author{Ime in priimek avtorja} % Mora biti enak kot na naslovnici!
@@ -189,13 +190,21 @@ V pričujočem zaključnem delu so uporabljene naslednje kratice:
 %******************************* UVOD ******************************************
 \chapter{Uvod} \label{uvod}
 
-Magistersko delo je nastalo v sodelovanju s podjetjem Iskraemeco~d.d. v oddelku
+Magistrsko delo je nastalo v sodelovanju s podjetjem Iskraemeco~d.d. v oddelku
 Razvoj in raziskave, ki se ukvarja z razvojem pametnih števcev električne energije
-(ang. smart energy meter) in njihovih izmenljivih modulov. 
-Pametni števec imajo poleg funkcij za merjenje električne energije tudi vlogo zbiranja in pošiljanje podatkov iz drugih merilnih naprav v gospodinjstvu (npr. vodni števec, kalorimeter, števec plina) \cite{skalar_zasnova_nodate}. V večini primerov podatke iz drugih merilnih naprav zbirajo preko lokalnih žičnih in brezzičnih omrežij (M-Bus, wM-Bus, RS-485), agregiranje podatke pa nato pošljejo naprej preko komunikacije po elektroenergetskem omrežju (G3-PLC) ali pa preko mobilnega omrežja (GPRS,LTE-M, Nb-IoT). 
-Večina pametnih števcev družine IE.X podjetja Iskraemeco d.d. ima modularno zasnovo, ki omogoča izmenjavo komunikacijskega modula tudi po tem, ko je števec že nameščen pri končnem uporabniku. To kasneje v življenski dobi števca omogoča nadgradnjo komunikacijskega modula, prav tako pa se lahko distribucija že v štartu izvedbe projekta odloči za več različnih možnosti komunikacije.
+(ang. smart energy meter) in njihovih izmenljivih modulov.
+Pametni števec imajo poleg funkcij za merjenje električne energije tudi vlogo zbiranja in pošiljanja podatkov iz drugih merilnih naprav v gospodinjstvu (npr. vodni števec, kalorimeter, števec plina) \cite{skalar_zasnova_nodate}. V večini primerov podatke iz drugih merilnih naprav zbirajo preko lokalnih žičnih in brezzičnih omrežij (M-Bus, wM-Bus, RS-485), agregirane podatke pa nato pošljejo naprej preko komunikacije po elektroenergetskem omrežju (G3-PLC) ali pa preko mobilnega omrežja (npr. GPRS,LTE-M, Nb-IoT), kot to prikazuje slika \ref{AMI arhitektura}. 
 
-Poenostavljeno arhitekturo pametnega števca prikazuje slika \ref{blok_shema_stevec}.
+\begin{figure}[h]
+    \centering
+    \includesvg[
+    width=0.8\columnwidth,
+    ]{Slike/AMI.drawio.svg}
+    \caption{\label{AMI arhitektura} Pametni števec kot zbirna točka podatkov merilnikov komunalnih storitev }
+\end{figure}
+
+
+Večina pametnih števcev družine IE.X podjetja Iskraemeco d.d. ima modularno zasnovo, ki omogoča izmenjavo komunikacijskega modula tudi po tem, ko je števec že nameščen pri končnem uporabniku. To kasneje v življenjski dobi števca omogoča nadgradnjo komunikacijskega modula ter zamenjavo mobilnega omrežja, lahko pa se distribucija že v začetku izvedbe projekta odloči za več tehnologij odčitavanja števca (primer Hrvaške, kjer isti števec podpira tehnologiji G3-PLC ter LTE \cite{Croatia}). Poenostavljeno arhitekturo pametnega števca prikazuje slika \ref{blok_shema_stevec}.
 
 \begin{figure}[h]
     \centering
@@ -205,19 +214,9 @@ Poenostavljeno arhitekturo pametnega števca prikazuje slika \ref{blok_shema_ste
     \caption{\label{blok_shema_stevec} Poenostavljenja arhitektura pametnega števca. }
 \end{figure}
 
-\begin{figure}[h]
-    \centering
-    \includesvg[
-    width=0.8\columnwidth,
-    ]{Slike/AMI.drawio.svg}
-    \caption{\label{blok_shema_stevec} Poenostavljenja arhitektura pametnega števca. }
-\end{figure}
-
-
-
-    
-Cilj magistrske naloge je opisati razvoj komunikacijskega modula za števce družine IE.X 
-
+Cilj magistrske naloge je opisati razvoj in razvojno testiranje komunikacijskega modula za družino pametnih števcev IE.X podjetja Iskraemeco d.d.
+%prestavimo spodnjo stvar nižje
+\begin{comment}
 Komunikacijski modem števcu omogoča naslednje funkcije:
 \begin{itemize}[noitemsep]
     \item daljinsko odčitavanje in parametriranje,
@@ -225,56 +224,53 @@ Komunikacijski modem števcu omogoča naslednje funkcije:
     \item obveščanje električne distribucije o dogodkih in izpadih na NN omrežju (funkcija last gasp),
 
 \end{itemize}
-
+\end{comment}
 
 %******************************* POGLAVJA **************************************
 
 \chapter{Primerjava mobilnih omrežij za odčitavanje števcev} \label{Primerjava mobilnih omrežij za odčitavanje števcev}
-    V podjetju Iskraemecu se za odčitavanje števcev trenutno uporabljajo naslednja mobilna omrežja: 
-    \begin{itemize}[noitemsep]
-    \item 2G
-    \item EDGE
-    \item 3G
-    \item LTE
-    \item NB-IoT
-    \item LTE-M
-    \end{itemize}
-\section{Omrežja druge generacije} \label{2G}
-Omrežja druge generacije (2G) temeljijo na sistemu GSM, ki je bil prvič implementiran leta 1991 kot tokovno komutirano omrežje, primarno namenjeno glasovni telefoniji. Frekvenčni spekter danes še vedno uporabljanega dela sistema GSM je razdeljen na 25 MHz široke pasove \cite{web_page}, pri čemer je vsak pas nadalje razdeljen na 125 kanalov s pasovno širino 200 kHz. Kanali so označeni z identifikacijsko številko ARFCN. Dodatno je v uporabi še časovna multipleksacija (TDMA), ki vsak posamezen frekvenčni kanal razdeli na osem časovnih rež, uporabljena modulacijska tehnika pa je GMSK (Gaussian Minimum Shift Keying). Nazivna hitrost prenosa podatkov v osnovnem GSM sistemu znaša 9,6 kbps.
-
-Sistem GPRS (General Packet Radio Service, t. i. 2.5G) je bil razvit kot nadgradnja GSM, pri čemer uvaja paketno komutirano prenosno tehniko namesto izključno tokovno komutirane. Odvisno od uporabljenega kodnega načina in razpoložljivega števila časovnih rež znaša hitrost prenosa podatkov med približno 56 in 114 kbps (https://en.wikipedia.org/wiki/GPRS) \cite{ETSI_TS_101_350}.
-
-Tehnologija EDGE (Enhanced Data rates for GSM Evolution, t. i. 2.75G) predstavlja nadaljnjo nadgradnjo GPRS. Poleg modulacije GMSK uporablja še modulacijsko shemo 8PSK (8-Phase Shift Keying), kar omogoča bistveno večjo podatkovno prepustnost. Največja teoretična hitrost prenosa podatkov lahko doseže do 473,6 kbps, pri čemer se še vedno uporablja isti frekvenčni spekter kot v sistemih GSM in GPRS \cite{GPRS}.
-
+    Mobilna omrežja predstavljajo pomemben komunikacijski medij za daljinsko odčitavanje števcev in prenos merilnih podatkov v naprednih merilnih sistemih (AMI). Leta 1988 je Iskraemeco predstavilo prvi elektronski sistem za samodejno odčitavanje števcev (AMR), 1998 pa prvi rezidenčni AMR sistem za gospodinjske uporabnike \cite{Iskraemeco_80_let}. 2005 je bil razvit števec MT372, ki je omogočal prenos podatkov po omrežju 2G.
+    Za odčitavanje števcev se v Iskraemecu uporablja več različnih mobilnih omrežnih tehnologij. Razdelitev omrežij po generacijah prikazuje slika \ref{omrezje}.
     
-     \begin{table}[htbp]
-        \centering
-        \caption{GSM frekvenčni pasovi}
-        \label{tab:gsm_bands}
-        \begin{tabular}{|l|c|c|c|}
-        \hline
+    \begin{figure}[H]
+    \centering
+    \includesvg[width=0.7\columnwidth,]{Slike/omrezja.svg}
+    \caption{\label{omrezje} Pregled mobilnih omrežij po generacijah \cite{omrezja}}
+    \end{figure}
+
+\section{Omrežja druge generacije} \label{2G}
+
+Omrežja druge generacije (2G) temeljijo na sistemu GSM, ki je bil prvič implementiran leta 1991 kot tokovno komutirano omrežje, primarno namenjeno glasovni telefoniji. Frekvenčni spekter danes še vedno uporabljenega sistema GSM je razdeljen na 25 MHz široke pasove \cite{GPRS}, pri čemer je vsak pas nadalje razdeljen na 125 kanalov s pasovno širino 200 kHz. Kanali so označeni z identifikacijsko številko ARFCN. Dodatno je v uporabi še časovni sodostop (TDMA), ki vsak posamezen frekvenčni kanal razdeli na osem časovnih rež, uporabljena modulacijska tehnika pa je GMSK (Gaussian Minimum Shift Keying). Nazivna hitrost prenosa podatkov v osnovnem  sistemu GSM  znaša 9,6 kbps.
+
+\begin{footnotesize}
+\begin{table}[H]
+    \centering
+    \caption{\label{tab:gsm_bands} GSM frekvenčni pasovi.}
+    ~\\*
+    \begin{tabular}{lccc} \hline
         \shortstack{\textbf{GSM Band}\\\textbf{[MHz]}} &
         \shortstack{\textbf{Uplink}\\\textbf{[MHz]}} &
         \shortstack{\textbf{Downlink}\\\textbf{[MHz]}} &
-        \shortstack{\textbf{Band Width}\\\textbf{[MHz]}} \\
-        \hline
-        \hline
+        \shortstack{\textbf{Band Width}\\\textbf{[MHz]}} \\ \hline
         GSM850        & 824--849   & 869--894   & 128--251 \\
-        \hline
         GSM900 (P-GSM)& 890--915   & 935--960   & 1--124 \\
-        \hline
         GSM900 (E-GSM)& 880--915   & 925--960   & 975--1023, 0--124 \\
-        \hline
         GSM900 (R-GSM)& 876--880   & 921--925   & 940--974, 0--124 \\
-        \hline
         GSM1800       & 1710--1785 & 1805--1880 & 512--885 \\
-        \hline
-        GSM1900       & 1850--1910 & 1930--1990 & 512--810 \\
-        \hline
-        \end{tabular}
-    \end{table}
+        GSM1900       & 1850--1910 & 1930--1990 & 512--810 \\ \hline
+    \end{tabular}
+\end{table}
+\end{footnotesize}
+
+Sistem GPRS (General Packet Radio Service, t. i. 2.5G) je bil razvit kot nadgradnja GSM, pri čemer uvaja paketno komutirano prenosno tehniko namesto izključno tokovno komutirane. Odvisno od uporabljenega kodnega načina in razpoložljivega števila časovnih rež znaša hitrost prenosa podatkov med približno 56 in 114 kbps (https://en.wikipedia.org/wiki/GPRS) \cite{ETSI_TS_101_350}.
+
+Tehnologija EDGE (Enhanced Data rates for GSM Evolution, t. i. 2.75G) predstavlja nadaljnjo nadgradnjo GPRS. Poleg modulacije GMSK uporablja še modulacijsko shemo 8PSK (8-Phase Shift Keying), kar omogoča bistveno večjo podatkovno prepustnost. Največja teoretična hitrost prenosa podatkov lahko doseže do 473,6 kbps, pri čemer se še vedno uporablja isti frekvenčni spekter kot v sistemih GSM in GPRS \cite{GPRS}. Omrežja druge generacije se zaradi svoje razširjenosti in dobre pokritosti pogosto uporabljajo kot nadomestna (fallback) komunikacijska tehnologija.
+
+    
+
 
 \section{Omrežja tretje generacije} \label{sec:3g}
+    Omrežja tretje generacije so bila uvedena s tehnologijo UMTS (Release 99), ki med drugim namesto kombinacije TDMA in FDMA uporablja sodostop WCDMA, zarardi česar se tudi pasovna širina kanala poveča na 5~MHz. Kasneje se pod omrežji tretje generacije razvijejo še HSDPA ter HSUPA. Skupaj sta tvorili tehnologijo HSPA, ki je bila kasneje nadgrajena v HSPA+ (Release 7). Večina Evropskih in slovenskih operaterjev je omrežja tretje generacije upokojila zaradi potreb po frekvenčnem spektru nadalnji razvoj omrežja 4G in 5G \cite{3Gupokojitev}.
     
 \section{Omrežja četrte generacije} \label{sec:4g}
     LTE je 3GPP razvil kot naslednika omrežij UMTS in HSPA v okviru specifikacij Release~8 (2008). Uporablja modulacijo OFDMA v smeri proti uporabniku in SC-FDMA v smeri od uporabnika. Promet v LTE poteka izključno paketno prek protokola IP. Podpira več pasovnih širin, od 1{,}4~MHz do 20~MHz; v konfiguraciji SISO je teoretična največja hitrost prenosa pri 20~MHz do 100~Mb/s v smeri proti uporabniku in do 50~Mb/s v smeri od uporabnika.
@@ -282,39 +278,129 @@ Tehnologija EDGE (Enhanced Data rates for GSM Evolution, t. i. 2.75G) predstavlj
     Iz LTE sta se kasneje razvila LTE Cat~1, namenjen napravam, ki ne potrebujejo velikih hitrosti prenosa podatkov, ter (z Release~13) LTE Cat~1bis, ki dodatno poenostavi strojno opremo zaradi uporabe ene antene namesto dveh, predpisanih pri LTE Cat~1 \cite{ETSI_TS_136_306_V13.5}. LTE-M (LTE Cat-M1) je predstavljen v Release~12 kot standard LPWA, namenjen predvsem IoT- in M2M-povezavam ter baterijsko napajanim napravam \cite{LTE-M}. Pasovna širina je 1{,}4~MHz, hitrost prenosa podatkov pa do približno 1~Mb/s.
 
     V Release~13 je opisan Narrowband Internet of Things (NB-IoT), ki omogoča še nižjo porabo energije in večjo prodornost, vendar v zameno za počasnejši prenos podatkov in daljše zakasnitve \cite{NBIoT}. Za odčitavanje in parametriranje pametnega števca se je po izkušnjah bolje izkazal LTE Cat-M1, saj zaradi višje hitrosti prenosa podatkov olajša nadgradnjo vdelane programske opreme (FOTA) ter branje večje količine podatkov \cite{Trendi_komunikacijskih_tehnologij}. Poleg tega je LTE Cat-M1 primernejši z vidika menjave operaterja in uporabe kartice eSIM kartice namesto klasične (2FF) kartice SIM .
-
-\begin{table}[htbp]
+\begin{footnotesize}
+\begin{table}[h]
     \centering
-    \caption{Najpogosteje uporabljeni LTE frekvenčni pasovi v Evropi}
-    \label{tab:lte_bands}
-    \begin{tabular}{|c|c|c|c|c|c|}
-    \hline
-    \textbf{Band} &
-    \textbf{Mode} &
-    \shortstack{\textbf{Uplink}\\\textbf{[MHz]}} &
-    \shortstack{\textbf{Downlink}\\\textbf{[MHz]}} &
-    \shortstack{\textbf{Band Width}\\\textbf{[MHz]}} \\
-    \hline
-    \hline
-    1  & FDD & 1920--1980 & 2110--2170    & 60 \\
-    \hline
-    3  & FDD & 1710--1785 & 1805--1880 & 75 \\
-    \hline
-    7  & FDD & 2500--2570 & 2620--2690 & 70 \\
-    \hline
-    8  & FDD & 880--915   & 925--960    & 35 \\
-    \hline
-    20 & FDD & 832--862   & 791--821    & 30 \\
-    \hline
-    28 & FDD & 703--748   & 758--803   & 745 \\
-    \hline
+    \caption{\label{tab:lte_bands} Najpogosteje uporabljeni LTE frekvenčni pasovi v Evropi.}
+    ~\\*
+    \begin{tabular}{ccccc} \hline
+        \textbf{Band} &
+        \textbf{Mode} &
+        \shortstack{\textbf{Uplink}\\\textbf{[MHz]}} &
+        \shortstack{\textbf{Downlink}\\\textbf{[MHz]}} &
+        \shortstack{\textbf{Band Width}\\\textbf{[MHz]}} \\ \hline
+        1  & FDD & 1920--1980 & 2110--2170 & 60 \\
+        3  & FDD & 1710--1785 & 1805--1880 & 75 \\
+        7  & FDD & 2500--2570 & 2620--2690 & 70 \\
+        8  & FDD & 880--915   & 925--960   & 35 \\
+        20 & FDD & 832--862   & 791--821   & 30 \\
+        28 & FDD & 703--748   & 758--803   & 745 \\ \hline
     \end{tabular}
 \end{table}
-    
+\end{footnotesize}
+\chapter{Potek načrtovanja in razvoja komunikacijskega modula} \label{Potek načrtovanja in razvoja komunikacijskega modula}
+Komunikacijski moduli podjetja Iskraemeco so lahko uporabljeni na enofaznih, trofaznih ali indirektnih števcih, zato mora biti modul  kompatibilen z že razvitimi števci. Interni standard Iskraemeco P* predpisuje dimenzije modula, glavne elektirčne lastnosti modula, signale med modulom in števcem, njihovo časnovno odvisnost ter osnovne ukaze AT. V tem poglavju bomo opisali osnovne zahteve za razvoj komunikacijskega modula ter razložili delovanje nekaterih funkcij, ki jih modul opravlja.
+Števec električne energije ima na svojem zgornjem levem robu priključek FEM (Field exchangable module). Na ta konektor se pritrdi komunikacijski modul. Zaradi eventuelne menjave modula ali menjave kartice SIM se lahko modul kadarkoli med delovanjem števca odstrani oziroma vgradi nazaj, brez da bi to kakorkoli vplivalno na delovanje števca. Števec odstranitev modula zazna ter zapiše v svoj dnevnik, saj gre lahko za poskus manipulacije števca. Vgrajen modul prikazuje slika \ref{modul_v_stevcu}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\columnwidth]{Slike/modul v števcu.PNG}
+    \caption{\label{modul_v_stevcu}Lokacija komunikacijskega modula v pametnem števcu}
+\end{figure}
+
+\section {Komunikacijski modem}
+Glavni element našega vezja je modem. Glede na več metrik in strateške cilje podjetja je bil izbran modem BG955A-GL proizvajalca Quectel. BG955A-GL podpira tehnologije LTE Cat-M, NB-IoT ter GPRS. Naše vezje bo podpiralo frekvenčne pasove, navedene v tabeli \ref{tab:bg955_bands}.
+
+\begin{table}[h]
+    \centering
+    \caption{\label{tab:bg955_bands} Podprti frekvenčni pasovi modema BG955A-GL.}
+    ~\\*
+    \begin{tabular}{lccc} \hline
+        \shortstack{\textbf{Band}\\[2pt]} &
+        \shortstack{\textbf{Povezava}\\[2pt]} &
+        \shortstack{\\[2pt]\textbf{Začetna frekvenca}\\[2pt]\textbf{[MHz]}} & \shortstack{\\[2pt]\textbf{Končna frekvenca}\\[2pt]\textbf{[MHz]}} \\ \hline
+       \multicolumn{4}{c}{\textbf{LTE CAT-M in NB-IoT}} \\ \hline
+        B3	& Uplink   & 1710	& 1785 \\
+        B3  & Downlink & 1805   & 1880 \\
+        B8  & Uplink   & 880    & 915  \\
+        B8  & Downlink & 925    & 960  \\
+        B20 & Uplink   & 832    & 862  \\
+        B20 & Downlink & 791    & 821  \\
+        B28 & Uplink   & 703    & 748  \\
+        B28 & Downlink & 758    & 803  \\ \hline
+        \multicolumn{4}{c}{\textbf{GPRS}} \\ \hline
+        E\_GSM    & Uplink   & 880{,}2  & 914{,}8  \\
+        E\_GSM    & Downlink & 925{,}2  & 959{,}8  \\
+        DCS 1800 & Uplink   & 1710{,}2 & 1784{,}8 \\
+        DCS 1800 & Downlink & 1805{,}2 & 1879{,}8 \\ \hline
+    \end{tabular}
+\end{table}
+
+Modem je v paketu LGA ter ima v sebi skoraj vso potrebno periferijo. Deluje na 1.8$V$ logičnih nivojih, zato je potrebno vse signale iz števca ustrezno pretvoriti iz 3,3$V$ na 1.8$V$. Ima dva kanala UART, eden služi kot glavni komunikacijski kanal s števcem (\textit{Main UART}), drugi pa kot kanal za razhroščevanje (\textit{Debug UART}). Komunikacija med števcem in modulom je nastavljena na hitrost 115200 baud, 8 podatkovnih bitov, 1 stop bit ter ne uporablja paritetnega bita. Pretvornik nivojev je predstavljen na sliki \ref{napetostni pretvornik}. 
+
+\begin{figure}[h]
+    \centering
+    \includesvg[inkscapelatex=false, width=0.8\columnwidth]{Slike/napetostni_pretvornik.svg}
+    \caption{Pretvornik med 3.3$V$ ter 1.8$V$ logičnim nivojem}
+    \label{napetostni pretvornik}
+\end{figure}
 
 
-\begin{enumerate}
+V našem primeru je pri komunikaciji UART aktivno stanje predstavljeno z nizkim logičnim nivojem. Ko števec preko TX linije Main UART postavi signal \texttt{COM\_TX} na nizek logični nivo (negativni prehod), tranzistor Q100 preide v nasičenje. Posledično se napetost na liniji \texttt{BG955\_MAIN\_UART\_RX} zniža na  napetost  $U_{CE}$ nasičenega tranzistorja $U_{CE(sat)}$.Ob pozitivnem prehodu signala \texttt{COM\_TX} iz nizkega v visoko logično stanje se tranzistor Q100 zapre. Upor R106 nato linijo \texttt{BG955\_MAIN\_UART\_RX} povleče na napajalno napetost \texttt{VDD\_EXT}, s čimer je na vhodu modula BG955A-GL vzpostavljeno visoko logično stanje. 
+Števec krmili tudi \texttt{nRESET} signal na komunikacijskem modulu. Pin je na števčnem mikrokrminlinku definiran kot izhodni pin, zato je na njem vedno napetost 0V oziroma 3,3V. \texttt{nRESET} pin komunikacijskega modula ima interni pull-up upor, zato smo med nRESET pin na števec povezali preko schotkey diode. Tako je ob visokem nivoju dioda zaporno polarizirana, ob nizkem stanju pa dioda začne prevajati ter povzroči nizko stanje na \texttt{nRESET} pinu. Napetost na pinu ni 0V, temveč  $U_{k}$ diode, ki pa je zaradi ustreznega tipa diodo ter nizkega toka skozi diodo dovolj nizek, da signal ni v prepovedanem območju po proizvajalčevem podatkovnem listu.
 
+\subsection {Napajanje komunikacijskega modula}
+Števec napaja modul direktno iz stikalnega napajalnika, namenjenega za napajanje glavnega mikrokrmilnika in ostale periferije, zato je pomembno, da komunikacijski modul v nobenem trenutku ne vzame več toka, kot je to predpisano v standardu P*. Modul se napaja z napetostjo 4V, na P* konektorju pa je prisotna tudi napetost 3,3V za potrebe pretvornikov nivojev. Ob prižigu števca sta napajalna napetost ter \texttt{nReset} signal na ugasnjena oz. 0V. Števec po svoji inicializaciji vklopi napajanje modula, 3s kasneje pa sledi dvig signala nRESET na 3,3V. Vklop modula prikazuje slika \ref{prizig_modula}. 
+ 
+\begin{figure}[htbp]
+    \centering
+    \includesvg[width=0.8\columnwidth]{Slike/prizig.svg}
+    \caption{Prižig modula po standardu P*}
+    \label{prizig_modula}
+\end{figure}
+
+Ker BG955A-GL podpira omrežje GPRS, je potrebno zaradi t.i. TX burstov zagotoviti primerno velike blokirne kondenzatorje, ki bodo zagotavljali, da se napetost med delovanjem modula ne bo sesedla. Ker v so v primeru vgradnje modula v delujoči števec kondenzatorji prazni, smo z tokovno limito zagotovili, da se stikalni napajalnik v števcu ob nenadni obremenitiv ne bo sesedel. Izbrali smo nastavljivo tokovno limito MP62551 proizvajalca MPS, ki ji lahko z uporom poljubno nastavimo limito med vrednostjo 60$mA$ -1700$mA$. Upornost MOS tranzistoja v čipu je 100 $\mathrm{m\Omega}$, kar nam ob določeni limiti 1A prinese sprejemljiv padec napetosti 100 $mV$.
+
+\subsection {Vklop komunikacijskega modula}
+Ko števec modulu vklopi napajanje in postavi  signal \texttt{nReset}, modul potrebuje 500 - 1000 $ms$ širok negativni pulz na pinu 15 - PWRKEY. Časovni potek vklopa modula prikazuje slika \ref{prizig_modula_BG955_HW_guide}. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\columnwidth]{Slike/prizig_modula_BG955_HW_guide.png}
+    \caption{Časovni diagram signalov ob prižigu modula}
+    \label{prizig_modula_BG955_HW_guide}
+\end{figure}
+
+Pin ima interni 470 $\mathrm{k\Omega}$ "pull-up" upor. Ker standard P* na svojem vmesniku nima za to namenjenega pina, smo zasnovali diskretno rešitev, ki jo prikazuje slika \ref{pwrkey}. Ob vklopu napajanja je tranzistor PMOS  Q103 zaprt, zato je zaprt Q104 ter posledično je signal \texttt{BG\_955\_PWRKEY} definiran z internim pull-up uporom. Ko števec postavi signal \texttt{nRESET} v visoko stanje, se PMOS Q103 odpre, kar povzroči polnjenje RC člena, sestavljenega iz upora R113 in kondentatorja C115. Naloga prvega RC člena je pulz zakasniti, drugi RC člen iz upora R115 ter kondenzatorja C117 pa se obnaša kot diferenciator - saj na vrata tranzistorja Q104 prenese zgolj spremembo vhodne napetosti, medtem ko se kondenzator C117 prazni preko upora R115. Ko je napetost med vrati $U_{gs}$ tranzistorja Q104 večja od njegove pragovne napetosti $V_{th}$, se tranzistor odpre ter povleče signal \texttt{BG\_955\_PWRKEY} na napetost 0 V. 
+Po preteku časovne konstante RC člena R115-C117 napetost na vratih tranzistorja pade pod pragovno napetost $V_{th}$, tranzistor Q104 se zapre, signal \texttt{BG\_955\_PWRKEY} pa se zaradi internega pull-up upora ponovno postavi v logično visoko stanje. 
+\begin{figure}
+    \centering
+    \includesvg[inkscapelatex=false,width=0.95\columnwidth]{Slike/powerkey_vezje.svg}
+    \caption{Vezje za avtomatski vklop modula}
+    \label{pwrkey}
+\end{figure}
+
+\subsection {Izklpp komunikacijskega modula}
+Ker je števec priklopljen na omrežje mora biti vedno pripravljen na nenadni izklop. Arhitektura števca 
+
+
+
+
+%Oscilogram napetostne pretvobe na RX liniji Main UART prikazuje slika ref{Napetostni pretvornik}.
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=0.9\columnwidth,trim=0cm 0.4cm 0.0cm 0.8cm, clip]{Slike/moduleRX level translator.PNG}
+%    \caption{Napetostni pretvornik med 3.3V in 1.8V}
+%    \label{Napetostni pretvornik}
+%\end{figure}
+
+%, rezultat na samem vezju pa prikazuje slika \ref{Negativni_pulz_pwrkey}
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=0.9\columnwidth,trim=0cm 0.4cm 0.0cm 0.8cm, clip]{Slike/vklop.PNG}
+%    \caption{Negativni pulz na signalu \texttt{BG\_955\_PWRKEY}}
+%    \label{Negativni_pulz_pwrkey}
+%\end{figure}
 
 
 
