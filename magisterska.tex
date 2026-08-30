@@ -350,13 +350,13 @@ V našem primeru je pri komunikaciji UART aktivno stanje predstavljeno z nizkim 
 Števec krmili tudi \texttt{nRESET} signal na komunikacijskem modulu. Pin je na števčnem mikrokrminlinku definiran kot izhodni pin, zato je na njem vedno napetost 0V oziroma 3,3V. \texttt{nRESET} pin komunikacijskega modula ima interni pull-up upor, zato smo med nRESET pin na števec povezali preko schotkey diode. Tako je ob visokem nivoju dioda zaporno polarizirana, ob nizkem stanju pa dioda začne prevajati ter povzroči nizko stanje na \texttt{nRESET} pinu. Napetost na pinu ni 0V, temveč  $U_{k}$ diode, ki pa je zaradi ustreznega tipa diodo ter nizkega toka skozi diodo dovolj nizek, da signal ni v prepovedanem območju po proizvajalčevem podatkovnem listu.
 
 \subsection {Napajanje komunikacijskega modula}
-Števec napaja modul direktno iz stikalnega napajalnika, namenjenega za napajanje glavnega mikrokrmilnika in ostale periferije, zato je pomembno, da komunikacijski modul v nobenem trenutku ne vzame več toka, kot je to predpisano v standardu P*. Modul se napaja z napetostjo 4V, na P* konektorju pa je prisotna tudi napetost 3,3V za potrebe pretvornikov nivojev. Ob prižigu števca sta napajalna napetost ter \texttt{nReset} signal na ugasnjena oz. 0V. Števec po svoji inicializaciji vklopi napajanje modula, 3s kasneje pa sledi dvig signala nRESET na 3,3V. Vklop modula prikazuje slika \ref{prizig_modula}. 
+Števec napaja modul direktno iz stikalnega napajalnika, namenjenega za napajanje glavnega mikrokrmilnika in ostale periferije, zato je pomembno, da komunikacijski modul v nobenem trenutku ne vzame več toka, kot je to predpisano v standardu P*. Modul se napaja z napetostjo 4V, na P* konektorju pa je prisotna tudi napetost 3,3V za potrebe pretvornikov nivojev. Ob prižigu števca sta napajalna napetost ter \texttt{nReset} signal na ugasnjena oz. 0V. Števec po svoji inicializaciji vklopi napajanje modula, 3s kasneje pa sledi dvig signala nRESET na 3,3V. Blokovno shemo napajalnika v števcu prikazuje slika \ref{blok_shema_napajanje_stevec}. 
  
 \begin{figure}[htbp]
     \centering
     \includesvg[width=0.8\columnwidth, inkscapelatex=false]{Slike/blok_shema napajanje.svg}
-    \caption{Prižig modula po standardu P*}
-    \label{prizig_modula}
+    \caption{Blokovna shema napajalnika v števcu}
+    \label{blok_shema_napajanje_stevec}
 \end{figure}
 
 Ker BG955A-GL podpira omrežje GPRS, je potrebno zaradi t.i. TX burstov zagotoviti primerno velike blokirne kondenzatorje, ki bodo zagotavljali, da se napetost med delovanjem modula ne bo sesedla. Ker v so v primeru vgradnje modula v delujoči števec kondenzatorji prazni, smo z tokovno limito zagotovili, da se stikalni napajalnik v števcu ob nenadni obremenitiv ne bo sesedel. Izbrali smo nastavljivo tokovno limito MP62551 proizvajalca MPS, ki ji lahko z uporom poljubno nastavimo limito med vrednostjo 60$mA$ -1700$mA$. Upornost MOS tranzistoja v čipu je 100 $\mathrm{m\Omega}$, kar nam ob določeni limiti 1A prinese sprejemljiv padec napetosti 100 $mV$.
@@ -364,7 +364,7 @@ Ker BG955A-GL podpira omrežje GPRS, je potrebno zaradi t.i. TX burstov zagotovi
 \subsection {Vklop komunikacijskega modula}
 Ko števec modulu vklopi napajanje in postavi  signal \texttt{nReset}, modul potrebuje 500 - 1000 $ms$ širok negativni pulz na pinu 15 - PWRKEY. Časovni potek vklopa modula prikazuje slika \ref{prizig_modula_BG955_HW_guide}. 
 
-\begin{figure}[h]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.8\columnwidth]{Slike/prizig_modula_BG955_HW_guide.png}
     \caption{Časovni diagram signalov ob prižigu modula}
@@ -380,8 +380,15 @@ Po preteku časovne konstante RC člena R115-C117 napetost na vratih tranzistorj
     \label{pwrkey}
 \end{figure}
 
-\subsection {Izklpp komunikacijskega modula}
-Ker je števec priklopljen na omrežje mora biti vedno pripravljen na nenadni izklop. Arhitektura števca 
+\subsection {Funkcija last gasp}
+Ker je števec priklopljen na omrežje mora biti vedno pripravljen na nenadni izklop. Detekcijo izpada napajanja opravlja na napetosti 20V. Ko pride do izpada napajanje, se začne izvajati funckcija last gasp. Namen te funkcije je opozoriti distribucijo z potinsnim sporočilom, da je prišlo na omrežju do okvare oziroma izpada napajanja. Pogoj, da se funkcija izvede je, da je na ultra kondenzatorju predpisan nivo napetosti za izvedbo funkcije. Glavni parametri funkcije so:
+\begin{itemize}
+    \item destinacija in način pošiljanja - s tem parametrom nastavimo protokol in IP naslov potisnega sporočila,
+    \item čas, po katerem števec izpad energije obravnava kot izpad energije,
+    \item maksimalni naključni čas, ki zakasni pošiljanje potisnega sporočila zaradi možnosti izpada večjega števila števcev v relativni medsebojni bližini, pošiljanje vseh števev hkrati bi obrememenilo bazno postajo.
+    
+    
+\end{itemize}Ko pride do daljšega izpada napajanja, števec določi naključno vrednost med 0-30
 
 
 
