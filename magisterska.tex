@@ -31,6 +31,14 @@
 % Dodatni simboli
 \usepackage{textcomp}                               % dodatni simboli (kot npr. €)
 \usepackage{gensymb}                                % dodatni simboli \de­gree, \cel­sius, \pert­hou­sand, \mi­cro, \ohm
+
+% Enote in števila
+\usepackage{siunitx}
+\sisetup{
+  output-decimal-marker = {,},
+  input-decimal-markers = {.,,},
+}
+
 \newcommand{\uppi}{\textrm{\greektext p\latintext}} % velika grška črka P z \uppi, alternativa simbolu \Pi
 
 % Osnovno oblikovanje
@@ -198,7 +206,7 @@ Pametni števec imajo poleg funkcij za merjenje električne energije tudi vlogo 
 \begin{figure}[h]
     \centering
     \includesvg[
-    width=0.8\columnwidth,
+    width=0.8\columnwidth,inkscapelatex=false
     ]{Slike/AMI.drawio.svg}
     \caption{\label{AMI arhitektura} Pametni števec kot zbirna točka podatkov merilnikov komunalnih storitev }
 \end{figure}
@@ -209,7 +217,7 @@ Večina pametnih števcev družine IE.X podjetja Iskraemeco d.d. ima modularno z
 \begin{figure}[h]
     \centering
     \includesvg[
-    width=0.8\columnwidth,
+    width=0.8\columnwidth,inkscapelatex=false
     ]{Slike/blok_shema_stevc.svg}
     \caption{\label{blok_shema_stevec} Poenostavljenja arhitektura pametnega števca. }
 \end{figure}
@@ -298,8 +306,11 @@ Tehnologija EDGE (Enhanced Data rates for GSM Evolution, t. i. 2.75G) predstavlj
     \end{tabular}
 \end{table}
 \end{footnotesize}
+
+\chapter {Kartica SIM}
+    
 \chapter{Potek načrtovanja in razvoja komunikacijskega modula} \label{Potek načrtovanja in razvoja komunikacijskega modula}
-Komunikacijski moduli podjetja Iskraemeco so lahko uporabljeni na enofaznih, trofaznih ali indirektnih števcih, zato mora biti modul  kompatibilen z že razvitimi števci. Interni standard Iskraemeco P* predpisuje dimenzije modula, glavne elektirčne lastnosti modula, signale med modulom in števcem, njihovo časnovno odvisnost ter osnovne ukaze AT. V tem poglavju bomo opisali osnovne zahteve za razvoj komunikacijskega modula ter razložili delovanje nekaterih funkcij, ki jih modul opravlja.
+Komunikacijski moduli podjetja Iskraemeco so lahko uporabljeni na enofaznih, trofaznih ali indirektnih števcih, zato mora biti modul  kompatibilen z že razvitimi števci. Interni standard Iskraemeco P* predpisuje dimenzije modula, glavne elektirčne lastnosti modula, signale med modulom in števcem, njihovo časnovno odvisnost ter osnovne ukaze AT. V tem poglavju bomo opisali osnovne zahteve za razvoj komunikacijskega modula ter razložili delovanje nekaterih funkcij, ki jih modul opravlja.\newline
 Števec električne energije ima na svojem zgornjem levem robu priključek FEM (Field exchangable module). Na ta konektor se pritrdi komunikacijski modul. Zaradi eventuelne menjave modula ali menjave kartice SIM se lahko modul kadarkoli med delovanjem števca odstrani oziroma vgradi nazaj, brez da bi to kakorkoli vplivalno na delovanje števca. Števec odstranitev modula zazna ter zapiše v svoj dnevnik, saj gre lahko za poskus manipulacije števca. Vgrajen modul prikazuje slika \ref{modul_v_stevcu}.
 
 \begin{figure}[h]
@@ -307,9 +318,17 @@ Komunikacijski moduli podjetja Iskraemeco so lahko uporabljeni na enofaznih, tro
     \includegraphics[width=0.6\columnwidth]{Slike/modul v števcu.PNG}
     \caption{\label{modul_v_stevcu}Lokacija komunikacijskega modula v pametnem števcu}
 \end{figure}
-
+\section {Zahteve za komunikacijski modul}
+Komunikacija med števcem in modulom poteka preko protokola UART s hitrostjo 115200 $baud$, 8 podatkovnimi biti in enim stop bitom (115200 8N1) brez strojnega krmiljena pretoka (angl. hardware flow control). Podpirati mora tudi UART kanal za razhroščevanje, preko katerega omogoča nalaganje vgrajene programske opreme hitrosti do s hitrostjo do 3 $Mbaud$ z opcijskim strojnim krmiljenjem pretoka, določene ukaze ter povezavo USB za dodatne možnosti razvoja in razhroščevanja. Maksimalni tok, ki lahko iz števca steče v modul preko konektorja FEM je \SI{1}{\ampere}, vsa komunikacija s števcem pa je na \SI{3,3}{\volt} nivju. Modul mora biti vzdržati nenapovedano odstranitev iz števca oziroma odklop napajanja ter podpirati tehnologije LTE Cat-M in NB-IoT s preklopom na GPRS v primeru nedosegljivosti teh omrežij. Z variantno opremljenostjo naj omogoča klasično izmenljivo kartico sim v formatu 2FF ali eSIM kartico v fomratu MFF2. Frekvenčni pasovi, ki naj jih modul podpira so navedeni v tabeli \ref{tab:bg955_bands}. Na koncu razvoja mora v kombinaciji z števcem ustrezno prestati vse validacijske funkcijske teste, EMC testiranje ter dosegati s standardom predpisane vrednosti TRP in TIS. Izdelava in testiranje modula naj bosta čimbolj enostavna.
+Glede na sledeče zahteve smo izdelali blokovni diagram komunikacijskega modula, ki ga prikazuje slika \ref{blok diagram modula}
+\begin{figure}[h]
+    \centering
+    \includesvg[inkscapelatex=false, width=0.8\columnwidth]{Slike/blok diagram modula.svg}
+    \caption{Blokovni diagram komunikacijskega modula}
+    \label{blok diagram modula}
+\end{figure}
 \section {Komunikacijski modem}
-Glavni element našega vezja je modem. Glede na več metrik in strateške cilje podjetja je bil izbran modem BG955A-GL proizvajalca Quectel. BG955A-GL podpira tehnologije LTE Cat-M, NB-IoT ter GPRS. Naše vezje bo podpiralo frekvenčne pasove, navedene v tabeli \ref{tab:bg955_bands}.
+Glavni element našega vezja je modem. Glede na več metrik in strateške cilje podjetja je bil izbran modem BG955A-GL proizvajalca Quectel. BG955A-GL podpira tehnologije LTE Cat-M, NB-IoT ter GPRS.
 
 \begin{table}[h]
     \centering
@@ -347,10 +366,10 @@ Modem je v paketu LGA ter ima v sebi skoraj vso potrebno periferijo. Deluje na 1
 
 
 V našem primeru je pri komunikaciji UART aktivno stanje predstavljeno z nizkim logičnim nivojem. Ko števec preko TX linije Main UART postavi signal \texttt{COM\_TX} na nizek logični nivo (negativni prehod), tranzistor Q100 preide v nasičenje. Posledično se napetost na liniji \texttt{BG955\_MAIN\_UART\_RX} zniža na  napetost  $U_{CE}$ nasičenega tranzistorja $U_{CE(sat)}$.Ob pozitivnem prehodu signala \texttt{COM\_TX} iz nizkega v visoko logično stanje se tranzistor Q100 zapre. Upor R106 nato linijo \texttt{BG955\_MAIN\_UART\_RX} povleče na napajalno napetost \texttt{VDD\_EXT}, s čimer je na vhodu modula BG955A-GL vzpostavljeno visoko logično stanje. 
-Števec krmili tudi \texttt{nRESET} signal na komunikacijskem modulu. Pin je na števčnem mikrokrminlinku definiran kot izhodni pin, zato je na njem vedno napetost 0V oziroma 3,3V. \texttt{nRESET} pin komunikacijskega modula ima interni pull-up upor, zato smo med nRESET pin na števec povezali preko schotkey diode. Tako je ob visokem nivoju dioda zaporno polarizirana, ob nizkem stanju pa dioda začne prevajati ter povzroči nizko stanje na \texttt{nRESET} pinu. Napetost na pinu ni 0V, temveč  $U_{k}$ diode, ki pa je zaradi ustreznega tipa diodo ter nizkega toka skozi diodo dovolj nizek, da signal ni v prepovedanem območju po proizvajalčevem podatkovnem listu.
+Števec krmili tudi \texttt{nRESET} signal na komunikacijskem modulu. Pin je na števčnem mikrokrmilniku definiran kot izhodni pin, zato je na njem vedno napetost \SI{0}{\volt} oziroma \SI{3.3}{\volt}. \texttt{nRESET} pin komunikacijskega modula ima interni pull-up upor, zato smo med \texttt{nRESET} pin na števec povezali preko schotkey diode. Tako je ob visokem nivoju dioda zaporno polarizirana, ob nizkem stanju pa dioda začne prevajati ter povzroči nizko stanje na \texttt{nRESET} pinu. Napetost na pinu ni \SI{0}{\volt}, temveč $U_{k}$ diode, ki pa je zaradi ustreznega tipa diode ter nizkega toka skozi diodo dovolj nizek, da signal ni v prepovedanem območju po proizvajalčevem podatkovnem listu.
 
 \subsection {Napajanje komunikacijskega modula}
-Števec napaja modul direktno iz stikalnega napajalnika, namenjenega za napajanje glavnega mikrokrmilnika in ostale periferije, zato je pomembno, da komunikacijski modul v nobenem trenutku ne vzame več toka, kot je to predpisano v standardu P*. Modul se napaja z napetostjo 4V, na P* konektorju pa je prisotna tudi napetost 3,3V za potrebe pretvornikov nivojev. Ob prižigu števca sta napajalna napetost ter \texttt{nReset} signal na ugasnjena oz. 0V. Števec po svoji inicializaciji vklopi napajanje modula, 3s kasneje pa sledi dvig signala nRESET na 3,3V. Blokovno shemo napajalnika v števcu prikazuje slika \ref{blok_shema_napajanje_stevec}. 
+Števec napaja modul direktno iz stikalnega napajalnika, namenjenega za napajanje glavnega mikrokrmilnika in ostale periferije, zato je pomembno, da komunikacijski modul v nobenem trenutku ne vzame več toka, kot je to predpisano v standardu P*. Modul se napaja z napetostjo \SI{4}{\volt}, na P* konektorju pa je prisotna tudi napetost \SI{3,3}{\volt} za potrebe pretvornikov nivojev. Ob prižigu števca sta napajalna napetost ter \texttt{nReset} signal na ugasnjena oz. \SI{0}{\volt}. Števec po svoji inicializaciji vklopi napajanje modula, 3s kasneje pa sledi dvig signala nRESET na \SI{3,3}{\volt}. Blokovno shemo napajalnika v števcu prikazuje slika \ref{blok_shema_napajanje_stevec}. 
  
 \begin{figure}[htbp]
     \centering
@@ -359,10 +378,10 @@ V našem primeru je pri komunikaciji UART aktivno stanje predstavljeno z nizkim 
     \label{blok_shema_napajanje_stevec}
 \end{figure}
 
-Ker BG955A-GL podpira omrežje GPRS, je potrebno zaradi t.i. TX burstov zagotoviti primerno velike blokirne kondenzatorje, ki bodo zagotavljali, da se napetost med delovanjem modula ne bo sesedla. Ker v so v primeru vgradnje modula v delujoči števec kondenzatorji prazni, smo z tokovno limito zagotovili, da se stikalni napajalnik v števcu ob nenadni obremenitiv ne bo sesedel. Izbrali smo nastavljivo tokovno limito MP62551 proizvajalca MPS, ki ji lahko z uporom poljubno nastavimo limito med vrednostjo 60$mA$ -1700$mA$. Upornost MOS tranzistoja v čipu je 100 $\mathrm{m\Omega}$, kar nam ob določeni limiti 1A prinese sprejemljiv padec napetosti 100 $mV$.
+Ker BG955A-GL podpira omrežje GPRS, je potrebno zaradi t.i. TX burstov zagotoviti primerno velike blokirne kondenzatorje, ki bodo zagotavljali, da se napetost med delovanjem modula ne bo sesedla. Ker v so v primeru vgradnje modula v delujoči števec kondenzatorji prazni, smo z tokovno limito zagotovili, da se stikalni napajalnik v števcu ob nenadni obremenitiv ne bo sesedel. Izbrali smo nastavljivo tokovno limito MP62551 proizvajalca MPS, ki ji lahko z uporom poljubno nastavimo limito med vrednostjo \SIrange{60}{1700}{\milli\ampere}. Upornost NMOS tranzistoja v čipu je \SI{100}{\milli\ohm}, kar nam ob določeni limiti \SI{1}{\ampere} prinese sprejemljiv padec napetosti \SI{100}{\milli\volt}. Naša zahteva za tokovno limito je bila še zaščita pred tokom v napačni strani, lastnost ki jo bomo bolj podrobno opisali v naslednjih poglavjih. 
 
 \subsection {Vklop komunikacijskega modula}
-Ko števec modulu vklopi napajanje in postavi  signal \texttt{nReset}, modul potrebuje 500 - 1000 $ms$ širok negativni pulz na pinu 15 - PWRKEY. Časovni potek vklopa modula prikazuje slika \ref{prizig_modula_BG955_HW_guide}. 
+Ko števec modulu vklopi napajanje in postavi  signal \texttt{nReset}, modul potrebuje \SIrange{500}{1000}{\milli\second} širok negativni pulz na pinu 15 - PWRKEY. Časovni potek vklopa modula prikazuje slika \ref{prizig_modula_BG955_HW_guide}.
 
 \begin{figure}[!h]
     \centering
@@ -371,7 +390,7 @@ Ko števec modulu vklopi napajanje in postavi  signal \texttt{nReset}, modul pot
     \label{prizig_modula_BG955_HW_guide}
 \end{figure}
 
-Pin ima interni 470 $\mathrm{k\Omega}$ "pull-up" upor. Ker standard P* na svojem vmesniku nima za to namenjenega pina, smo zasnovali diskretno rešitev, ki jo prikazuje slika \ref{pwrkey}. Ob vklopu napajanja je tranzistor PMOS  Q103 zaprt, zato je zaprt Q104 ter posledično je signal \texttt{BG\_955\_PWRKEY} definiran z internim pull-up uporom. Ko števec postavi signal \texttt{nRESET} v visoko stanje, se PMOS Q103 odpre, kar povzroči polnjenje RC člena, sestavljenega iz upora R113 in kondentatorja C115. Naloga prvega RC člena je pulz zakasniti, drugi RC člen iz upora R115 ter kondenzatorja C117 pa se obnaša kot diferenciator - saj na vrata tranzistorja Q104 prenese zgolj spremembo vhodne napetosti, medtem ko se kondenzator C117 prazni preko upora R115. Ko je napetost med vrati $U_{gs}$ tranzistorja Q104 večja od njegove pragovne napetosti $V_{th}$, se tranzistor odpre ter povleče signal \texttt{BG\_955\_PWRKEY} na napetost 0 V. 
+Pin ima interni 470 $\mathrm{k\Omega}$ "pull-up" upor. Ker standard P* na svojem vmesniku nima za to namenjenega pina, smo zasnovali diskretno rešitev, ki jo prikazuje slika \ref{pwrkey}. Ob vklopu napajanja je tranzistor PMOS  Q103 zaprt, zato je zaprt Q104 ter posledično je signal \texttt{BG\_955\_PWRKEY} definiran z internim pull-up uporom. Ko števec postavi signal \texttt{nRESET} v visoko stanje, se PMOS Q103 odpre, kar povzroči polnjenje RC člena, sestavljenega iz upora R113 in kondentatorja C115. Naloga prvega RC člena je pulz zakasniti, drugi RC člen iz upora R115 ter kondenzatorja C117 pa se obnaša kot diferenciator - saj na vrata tranzistorja Q104 prenese zgolj spremembo vhodne napetosti, medtem ko se kondenzator C117 prazni preko upora R115. Ko je napetost med vrati $U_{gs}$ tranzistorja Q104 večja od njegove pragovne napetosti $V_{th}$, se tranzistor odpre ter povleče signal \texttt{BG\_955\_PWRKEY} na napetost \SI{0}{\volt}. 
 Po preteku časovne konstante RC člena R115-C117 napetost na vratih tranzistorja pade pod pragovno napetost $V_{th}$, tranzistor Q104 se zapre, signal \texttt{BG\_955\_PWRKEY} pa se zaradi internega pull-up upora ponovno postavi v logično visoko stanje. 
 \begin{figure}
     \centering
@@ -381,14 +400,121 @@ Po preteku časovne konstante RC člena R115-C117 napetost na vratih tranzistorj
 \end{figure}
 
 \subsection {Funkcija last gasp}
-Ker je števec priklopljen na omrežje mora biti vedno pripravljen na nenadni izklop. Detekcijo izpada napajanja opravlja na napetosti 20V, kot prikazuje slike \ref{blok_shema_napajanje_stevec}. Ko pride do izpada napajanja, se začne izvajati funckcija last gasp. Namen te funkcije je opozoriti distribucijo z potinsnim sporočilom, da je prišlo na omrežju do okvare oziroma izpada napajanja. Pogoj, da se funkcija izvede je, da je na ultra kondenzatorju predpisan nivo napetosti za izvedbo funkcije. Glavni parametri funkcije so:
+Ker je števec priklopljen na omrežje, mora biti vedno pripravljen na nenadni izklop. Detekcijo izpada napajanja opravlja na napetosti \SI{20}{\volt}. , kot prikazuje slika \ref{blok_shema_napajanje_stevec}. Ob zaznanem izpadu se lahko (na števcih, ki to podpirajo) sproži funkcija \textit{last gasp}, katere namen je opozoriti distribucijo s potisnim sporočilom, da je prišlo na omrežju do okvare oziroma izpada napajanja. Pogoj, da se funkcija izvede, je, da je na ultra kondenzatorju predpisan nivo napetosti za izvedbo funkcije. Glavni parametri funkcije so:
 \begin{itemize}
-    \item destinacija in način pošiljanja - s tem parametrom nastavimo protokol in IP naslov potisnega sporočila,
-    \item čas, po katerem števec izpad energije obravnava kot izpad energije,
-    \item maksimalni naključni čas, ki zakasni pošiljanje potisnega sporočila zaradi možnosti izpada večjega števila števcev v relativni medsebojni bližini, pošiljanje vseh števev hkrati bi obrememenilo bazno postajo.
+    \item destinacija in način pošiljanja - s tem parametrom nastavimo protokol in naslov IP  potisnega sporočila,
+    \item časovni interval \textit{ft}, po preteku katerega števec zaznani dogodek obravnava kot dejanski izpad napajanja ,
+    \item največji naključni časovni zamik \textit{rt} pred pošiljanjem potisnega sporočila. Ta preprečuje sočasno pošiljanje velikega števila sporočil z bližnjih števcev, kar bi lahko prekomerno obremenilo bazno postajo.
+\end{itemize}
+\begin{equation}
+    t_{\mathrm{max}} > t_f + t_r 
+    \label{cas_last_gasp} 
+\end{equation}
     
-    
-\end{itemize}Ko pride do daljšega izpada napajanja, števec določi naključno vrednost med 0-30
+Med izpadom napajanja se števec in komunikacijski modul napajata iz ultra kondenzatorja, zato je potrebno za vse porabnike na števcu določiti, ali bodo v času izpada napajanja  $t_{max}$ prižgani, potrebno pa je tudi poskrbeti, da se mikrokontroler v števcu varno ustavi. 
+Čas $t_{max}$ je določen z enačbo \ref{cas_last_gasp}, je omejen z velikostjo ultra kondenzatorja in je določen na \SI{40}{\second}. . Modul v času izvajanja funkcije ne dobi informacije, da je prišlo do izpada omrežja.
+
+\subsection {Varno ugašanje modula}
+Ko v ultra kondenzatorju zmanjka napetosti, se \SI{4}{\volt}.  napetost na števcu začne sesedati. Predhodno je bil edini način ugašanja modula BG955A-GL z signalom powerkey ali pa z ukazom AT, to ugašanje pa je po podatkovnem listu lahko med \SIrange{650}{1500}{\milli\second}. Obstaja možnost, da bi med uporabo bliskovnega pomnilnika modulu odrezali napajanje, kar bi v nekaterih primerih lahko povzročilo okvaro pomnilnika. Tem okvaram se moramo v predpisani življenski dobi števca (15 let) izogniti na vsak način, saj je zamenjava modula za distribucijo skrajno nezaželena stvar.
+Skupaj s proizvajalcem modula smo prišli do rešitve, in sicer je Quectel implementiral t.i. funkcijo fastshutdown. Pin \texttt{GPIO6} na modulu ima definiran interni pull-up upor. Tekom delovanja modul spremlja napetost na tem pinu, ter ko se naredi negativni prehod, konča z vpisovajem v bliskovni pomnilnik ter se sam ugasne. Vezje, ki ob padcu napetosti naredi negativni prehod na \texttt{GPIO6} prikazuje slika \ref{fastshutdovn_vezje}.
+\begin{figure}[h]
+    \centering
+    \includesvg[inkscapelatex=false, width=1\columnwidth]{Slike/fastshutdown_vezje.svg}
+    \caption{Detektor padca napetosti}
+    \label{fastshutdovn_vezje}
+\end{figure}
+Nadzornik napetosti NCP308 je med delovanjem števca napajano iz glavne napajalne žile za modul, ko pa števec ugasne napetost modulu pa se napaja iz ultra kondenzatorja. Napetostni domeni smo ločili z schotkey diodami, saj je poraba NCP308 zanemarljiva ter se posledično na njih ne zgublja veliko energije. Z delilnikom napetosti smo določili napetost pri kateri NCP308 svoj "open collector" izhod sklene na \SI{0}{\volt}. Izhod vezja ter delilnik napetosti smo povezali z \SI{1}{\mega\ohm}.  uporom ter tako vezju dodali dodatno histerezo. Napetost preklopa ter histerzo določajo:
+\begin{equation}
+\begin{aligned}
+    R_{100} &= \SI{8.25}{\kilo\ohm} \\
+    R_{111} &= \SI{68.10}{\kilo\ohm} \\
+    R_{117} &= \SI{1}{\mega\ohm} \\
+    U_{\text{th}} &= \SI{0.405}{\volt}
+\end{aligned}
+\end{equation}
+
+Tranzistorski izhod v NCP308 preneha prevajati ko:
+\begin{equation}
+    U_{\text{sense}} \ge U_{\text{th}}
+\end{equation}
+
+Ob naraščajoči napajalni napetosti $U_{+4\mathrm{V}^\ast}$ je na izhodu NCP308 \SI{0}{\volt}:
+\begin{equation}
+    R_{100} \parallel R_{117} = \SI{8250.49}{\ohm}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+    U_{\mathrm{TH}+} &= \frac{U_{\text{th}}}{R_{100} \parallel R_{117}}\ \cdot R_{111} + U_{\text{th}} \\
+    U_{\mathrm{TH}+} &= \frac{\SI{0.405}{\volt}}{\SI{8250.49}{\ohm}}\cdot \SI{68.1}{\kilo\ohm} + \SI{0.405}{\volt} \\
+    U_{\mathrm{TH}+} &= \SI{3.77}{\volt}
+\end{aligned}
+\end{equation}
+
+Tranzistorski izhod v NCP308 prične prevajati ko:
+\begin{equation}
+    U_{\text{sense}} \le U_{\text{th}}
+\end{equation}
+
+Ob padajoči napajalni napetosti $U_{+4\mathrm{V}^\ast}$ je na izhodu NCP308 \SI{4}{\volt}:
+\begin{equation}
+    R_{111} \parallel R_{117} = \SI{63758.1}{\ohm}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+    U_{\mathrm{TH}-} &= \frac{U_{\text{th}}}{R_{100}}\,\left(R_{111} \parallel R_{117}\right) + U_{\text{th}} \\
+    U_{\mathrm{TH}-} &= \frac{\SI{0.405}{\volt}}{\SI{8250}{\ohm}}\cdot \left(\SI{68.1}{\kilo\ohm} \parallel \SI{1}{\mega\ohm}\right) + \SI{0.405}{\volt} \\
+    U_{\mathrm{TH}-} &= \SI{3.53}{\volt}
+\end{aligned}
+\end{equation}
+
+
+
+
+Kljub temu je bila ta funkcija v začetnih verzijah zelo počasna, zato smo modulu dodali zalogo energije v obliki kondenzatorja EDLC, saj imajo veliko gostoto energije, nizek ESR ter zmorejo velike tokove. Za prve vzorce smo izbrali kondenzator S06R0SA474WB proizvajalca Abrancon, katerega ključne karakteristike so:
+\begin{itemize}
+    \item Kapacitivnost - \SI{0.47}{\farad}
+    \item Napetost - \SI{6}{\volt}
+    \item ESR - \SI{0,9}{\ohm}
+    \item Maksimalni tok - \SI{1}{\ampere}
+\end{itemize}  
+
+Da omejimo tok polnjenja smo izbrali 2 upora velikostnega razreda 1206 (v enačbah označena kot \textit{R1} in \textit{R2}) upornosti \SI{16}{\ohm}. Ta rešitev je bila na izbrana ker je cenovno ugodna ter enostavna ob predpostavki, da montiran števec kondenzator EDLC napolni samo ob hladnem zagonu števca (ko je $U_{EDLC}$ izpraznjen), nato pa ta kondezator ostane nabit med delovanjem števca.
+Maksimalni polnilni tok kondezatorja je:
+\begin{equation} 
+\begin{aligned}
+    I_{max}&=\frac{U_0}{R1+R2} \\
+    \frac{\SI{4}{\volt}. }{\SI{16}{\ohm}+\SI{16}{\ohm} }&= \SI{125}{\milli\ampere}
+\end{aligned}
+\end{equation}
+Največjo moč na uporu \textit{R1} in \textit{R2} prikazuje enačba \label{moc_upor}:
+\begin{equation}
+\begin{aligned}
+    P_{R1_{max}}=P_{R2_{max}} &=(I_{max})^2\cdot R \\
+    \SI{125}{\milli\ampere}^2 \cdot \SI{16}{\ohm} &= \SI{0.25}{\watt}
+    \label{moc_upor}
+\end{aligned}
+\end{equation}
+Največja disipacija moči na uporih $P_{R1_{max}}$ in $P_{R2_{max}}$ nastopi v trenutku priklopa napajanja, ko je kondenzator popolnoma izpraznjen ($U_C$=\SI{0}{\volt}). V tem trenutku je polnilni tok največji, zato je največja tudi disipacija moči na uporih. Med polnjenjem kondenzatorja se njegova napetost povečuje, polnilni tok pa se eksponentno zmanjšuje, kar povzroči sorazmerno zmanjšanje disipirane moči na obeh uporih.
+Minimalna napajalna napetost \SI{3,3}{\volt} bo na kondenzatorju dosežena ob času:
+\begin{equation}
+\begin{aligned}
+    U_C(t)&=U_{Cmax}\left(1-e^{-t/\tau}\right) \\
+    \tau &= R\cdot C \\
+    \SI{32}{\ohm} \cdot \SI{0,47}{\farad} &= \SI{15.04}{\second} \\
+    \SI{3.3}{\volt} &=\SI{4}{\volt}\left(1-e^{-t/\SI{15.04}{\second}}\right) \\
+    t &\approx 26.2s 
+\end{aligned} 
+\end{equation}
+Da zalogo energije v kondezatorju efektivno izkoristimo moramo dodati vezje, ki bo ob izpadu napajanja premostilo polnilne upore, na katerih bi ob odjemu energije iz kondeznatorja dobili padec napetosti. To naredimo z tranzistorjem PMOS, ki mu vrata odpira kar napajlna napetost \texttt{\SI{4}{\volt}}, tako bo edino izgubo predstavljala $R_{ds}$ tranzistorja PMOS. Shemo prikazuje slika \ref{EDLC}.
+
+\begin{figure}[h]
+    \centering
+    \includesvg[inkscapelatex=false, width=0.5\columnwidth]{Slike/EDLC.svg}
+    \caption{Kondenzator EDLC za varno ugašanje modema}
+    \label{EDLC}
+\end{figure}
 
 
 
