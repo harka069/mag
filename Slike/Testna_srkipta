@@ -1,0 +1,126 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="PTnMQRxaQKTnff1l8Ibi">
+    <mxGraphModel dx="2416" dy="1356" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-20" edge="1" parent="1" style="endArrow=block;endFill=1;" target="Z6Bo7Z5oh_ZYlMs-Rzug-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="150" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-21" edge="1" parent="1" source="Z6Bo7Z5oh_ZYlMs-Rzug-3" style="arcSize=0;endArrow=block;endFill=1;" target="Z6Bo7Z5oh_ZYlMs-Rzug-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-22" edge="1" parent="1" source="Z6Bo7Z5oh_ZYlMs-Rzug-4" style="arcSize=0;endArrow=block;endFill=1;" target="Z6Bo7Z5oh_ZYlMs-Rzug-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-23" edge="1" parent="1" source="Z6Bo7Z5oh_ZYlMs-Rzug-5" style="arcSize=0;endArrow=block;endFill=1;" target="Z6Bo7Z5oh_ZYlMs-Rzug-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-26" edge="1" parent="1" source="Z6Bo7Z5oh_ZYlMs-Rzug-8" style="edgeStyle=orthogonalEdgeStyle;arcSize=0;endArrow=block;endFill=1;" target="Z6Bo7Z5oh_ZYlMs-Rzug-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-62" edge="1" parent="1" source="Z6Bo7Z5oh_ZYlMs-Rzug-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;arcSize=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="600" y="1130" />
+              <mxPoint x="480" y="1130" />
+              <mxPoint x="480" y="510" />
+            </Array>
+            <mxPoint x="480" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-43" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" value="Nastavitev sprožilca na osciloskopu" vertex="1">
+          <mxGeometry height="60" width="180" x="510" y="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-50" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=0;endFill=1;arcSize=0;" target="Z6Bo7Z5oh_ZYlMs-Rzug-6" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="540" y="510" as="sourcePoint" />
+            <mxPoint x="530" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-51" edge="1" parent="1" source="Z6Bo7Z5oh_ZYlMs-Rzug-6" style="exitX=1;exitY=0.5;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;rounded=0;curved=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;arcSize=0;endArrow=block;endFill=1;" target="Z6Bo7Z5oh_ZYlMs-Rzug-52">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="740" y="670" as="sourcePoint" />
+            <mxPoint x="800" y="740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" value="&lt;div&gt;Inicializacija main UART&lt;/div&gt;&lt;div&gt;Inicializacija debug UART&lt;/div&gt;&lt;div&gt;Inicializacija osciloskop&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="500" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" value="&lt;div&gt;Ustvarjanje niti za spremljanje&lt;/div&gt;&lt;div&gt;debug UART&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="500" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" value="Nastavitev sprožilca na osciloskopu" vertex="1">
+          <mxGeometry height="60" width="200" x="500" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-6" parent="1" style="rhombus;whiteSpace=wrap;html=1;arcSize=0;" value="Prekinitev na tipkovnici" vertex="1">
+          <mxGeometry height="80" width="120" x="540" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" value="Čakanje na dogodek iz pomožne nizi (modul povezan v omrežje)" vertex="1">
+          <mxGeometry height="60" width="180" x="510" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-46" edge="1" parent="1" source="Z6Bo7Z5oh_ZYlMs-Rzug-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;arcSize=0;endArrow=block;endFill=1;" target="Z6Bo7Z5oh_ZYlMs-Rzug-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" value="Izklop napajanja modulu" vertex="1">
+          <mxGeometry height="60" width="180" x="510" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-45" edge="1" parent="1" source="Z6Bo7Z5oh_ZYlMs-Rzug-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;arcSize=0;" target="Z6Bo7Z5oh_ZYlMs-Rzug-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-40" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" value="Prižig modula" vertex="1">
+          <mxGeometry height="60" width="180" x="510" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-47" edge="1" parent="1" source="Z6Bo7Z5oh_ZYlMs-Rzug-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;arcSize=0;endArrow=block;endFill=1;" target="Z6Bo7Z5oh_ZYlMs-Rzug-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-42" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" value="Čakanje na sprožilec osciloskopa" vertex="1">
+          <mxGeometry height="60" width="180" x="510" y="890" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-70" edge="1" parent="1" source="Z6Bo7Z5oh_ZYlMs-Rzug-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" target="Z6Bo7Z5oh_ZYlMs-Rzug-43" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" value="Preberi meritev in jo shrani v .csv" vertex="1">
+          <mxGeometry height="60" width="180" x="510" y="970" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-24" edge="1" parent="1" source="Z6Bo7Z5oh_ZYlMs-Rzug-6" style="entryX=0.5;entryY=0;entryDx=0;entryDy=0;arcSize=0;endArrow=block;endFill=1;" target="Z6Bo7Z5oh_ZYlMs-Rzug-40">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-60" edge="1" parent="1" source="Z6Bo7Z5oh_ZYlMs-Rzug-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;arcSize=0;" target="Z6Bo7Z5oh_ZYlMs-Rzug-59">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-52" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Zaprianje serijskih portov&lt;/div&gt;&lt;div&gt;Zapiranje povezave z osciloskopom&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="730" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-68" edge="1" parent="1" source="Z6Bo7Z5oh_ZYlMs-Rzug-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" target="Z6Bo7Z5oh_ZYlMs-Rzug-67" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-58" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" value="Kreiranje in shranjevanje histograma podatkov" vertex="1">
+          <mxGeometry height="60" width="180" x="730" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-61" edge="1" parent="1" source="Z6Bo7Z5oh_ZYlMs-Rzug-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;arcSize=0;endArrow=block;endFill=1;" target="Z6Bo7Z5oh_ZYlMs-Rzug-58">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-59" parent="1" style="rounded=1;whiteSpace=wrap;html=1;arcSize=0;" value="&lt;div&gt;Zaprianje serijskih portov&lt;/div&gt;&lt;div&gt;Zapiranje povezave z osciloskopom&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="730" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-63" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;arcSize=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="480" y="510" as="sourcePoint" />
+            <mxPoint x="540" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-66" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;shapeInside=1;fixedSize=1;" value="Začetek" vertex="1">
+          <mxGeometry height="60" width="200" x="500" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Z6Bo7Z5oh_ZYlMs-Rzug-67" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;shapeInside=1;fixedSize=1;" value="Konec" vertex="1">
+          <mxGeometry height="60" width="180" x="730" y="890" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
