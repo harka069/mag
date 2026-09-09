@@ -162,35 +162,78 @@ V pričujočem zaključnem delu so uporabljene naslednje veličine in simboli:
 
 \begin{center}
     \begin{tabular}{*{4}{l}} \hline
-        \multicolumn{2}{c}{\bf{Veličina / oznaka}}           & \multicolumn{2}{c}{\bf{Enota}} \\ \hline
-        Ime                & Simbol                          & Ime      & Simbol              \\ \hline
-        čas                & $t$                             & sekunda  & s                   \\
-        frekvenca          & $f$                             & Hertz    & Hz                  \\
-        tlak               & $p$                             & Pascal   & Pa                  \\
-        sila vzgona        & $\textbf{\textit{F}}_\text{vz}$ & Newton   & N                   \\
-        gostota            & $\rho$                          & -        & kg/m$^3$            \\
-        masa               & $m$                             & kilogram & kg                  \\
-        vhodna napestost   & $U_\text{vh}$                   & volt     & V                   \\
-        Jacobijeva matrika & $\mathbf{J}$                    & -        & -                   \\ \hline
+        \multicolumn{2}{c}{\bf{Veličina / oznaka}} & \multicolumn{2}{c}{\bf{Enota}} \\ \hline
+        Ime & Simbol & Ime & Simbol \\ \hline
+        čas & $t$ & sekunda & s \\
+        frekvenca & $f$ & Hertz & Hz \\
+        napetost & $U$ & volt & V \\
+        tok & $I$ & ampere & A \\
+        upornost & $R$ & ohm & $\Omega$ \\
+        kapacitivnost & $C$ & farad & F \\
+        moč & $P$ & watt & W \\
+        koeficient odboja & $\Gamma$ & -- & -- \\
+        razmerje stoječega vala & $\mathrm{SWR}$ & -- & -- \\
+        povratno slabljenje & $\mathrm{Return\ Loss}$ & decibel & dB \\
+        S-paramater & $S_{11}$ & decibel & dB \\
+
+
     \end{tabular}
 \end{center}
-
-Pri čimer so vektorji in matrike zapisani s poudarjeno pisavo. Natančnejši pomen simbolov ter njihovih indeksov je razviden iz ustreznih slik ali pa je pojasnjen v spremljajočem besedilu, kjer je simbol uporabljen.
 
 \seznamkratic
 V pričujočem zaključnem delu so uporabljene naslednje kratice:
 
 \begin{center}
-    \begin{longtable}{p{2.5cm}|p{11cm}} \hline %Dolga tabela kratic (večstranska)
-        Kratica                & Pomen              \\ \hline\endhead %Glava, ki se ponovi na začetku vsake strani tabele
+    \begin{longtable}{p{2.5cm}|p{5.75cm}|p{5.75cm}} \hline %Dolga tabela kratic (večstranska)
+        Kratica & Pomen v slovenščini & Pomen v angleščini \\ \hline\endhead %Glava, ki se ponovi na začetku vsake strani tabele
         \hline\endfoot %Zaključek tabele na vsaki strani
         %Začetek vsebine tabele
-        UL                 & Univerza v Ljubljani                                          \\
-        FE                 & Fakulteta za elektrotehniko                            \\
-        SIST               & Slovenski inštitut za standardizacijo                        \\
-        ISO                & angl. International Organization for Standardization (Mednarodna organizacija za standardizacijo)\\
-        PVC                & polivinilklorid                               \\
-        I2C                & angl. Inter-integrated circuit                                             \\
+APN    & ime dostopne točke & Access Point Name \\
+ARFCN  & absolutna številka radijskega frekvenčnega kanala & Absolute Radio Frequency Channel Number \\
+AT     & ukazi AT & AT Commands \\
+BER    & razmerje bitnih napak & Bit Error Rate \\
+CTS    & potrditev za pošiljanje & Clear To Send \\
+DFOTA  & diferencialna posodobitev vgrajene programske opreme na daljavo & Delta Firmware Over-The-Air \\
+EDLC   & kondenzator z elektrostatičnim dvojnim slojem & Electric Double-Layer Capacitor \\
+EMC    & elektromagnetna združljivost & Electromagnetic Compatibility \\
+EMI    & elektromagnetne motnje & Electromagnetic Interference \\
+ESD    & elektrostatična razelektritev & Electrostatic Discharge \\
+ESR    & ekvivalentna serijska upornost & Equivalent Series Resistance \\
+ETSI   & Evropski inštitut za telekomunikacijske standarde & European Telecommunications Standards Institute \\
+FDD    & frekvenčni dupleks & Frequency Division Duplex \\
+FEM    & zamenljivi funkcijski modul & Field Exchangeable Module \\
+FOTA   & posodobitev vgrajene programske opreme na daljavo & Firmware Over-The-Air \\
+G3-PLC & komunikacija po elektroenergetskem omrežju G3 & G3 Power Line Communication \\
+GPIO   & splošnonamenski vhod/izhod & General-Purpose Input/Output \\
+IP     & internetni protokol & Internet Protocol \\
+IoT    & internet stvari & Internet of Things \\
+LCD    & zaslon s tekočimi kristali & Liquid Crystal Display \\
+LGA    & ohišje tipa LGA & Land Grid Array \\
+LPWA   & širokopodročno omrežje z majhno porabo energije & Low-Power Wide-Area \\
+M-Bus  & komunikacijsko vodilo Meter-Bus & Meter-Bus \\
+M2M    & komunikacija stroj--stroj & Machine-to-Machine \\
+NMOS   & N-kanalni MOSFET & N-channel Metal-Oxide-Semiconductor Field-Effect Transistor \\
+OFDMA  & večkratni dostop z ortogonalnim frekvenčnim multipleksiranjem & Orthogonal Frequency-Division Multiple Access \\
+OTA    & brezžični prenos podatkov & Over-The-Air \\
+PCB    & tiskano vezje & Printed Circuit Board \\
+PDP    & paketni podatkovni protokol & Packet Data Protocol \\
+PMOS   & P-kanalni MOSFET & P-channel Metal-Oxide-Semiconductor Field-Effect Transistor \\
+PPP    & protokol točka--točka & Point-to-Point Protocol \\
+RS-485 & serijski komunikacijski standard RS-485 & RS-485 Serial Communication Standard \\
+RTS    & zahteva za pošiljanje & Request To Send \\
+SIM    & naročniški identifikacijski modul & Subscriber Identity Module \\
+SISO   & en vhod, en izhod & Single-Input Single-Output \\
+SMD    & površinsko montirana komponenta & Surface-Mount Device \\
+SWR    & razmerje stoječega vala & Standing Wave Ratio \\
+TDMA   & časovni večkratni dostop & Time Division Multiple Access \\
+TIS    & skupna izotropna občutljivost & Total Isotropic Sensitivity \\
+TRP    & skupna izsevana moč & Total Radiated Power \\
+UART   & univerzalni asinhroni oddajnik/sprejemnik & Universal Asynchronous Receiver/Transmitter \\
+USB    & univerzalno serijsko vodilo & Universal Serial Bus \\
+VNA    & vektorski analizator omrežij & Vector Network Analyzer \\
+VSWR   & napetostno razmerje stoječega vala & Voltage Standing Wave Ratio \\
+wM-Bus & brezžični Meter-Bus & Wireless Meter-Bus \\
+
         %konec vsebine tabele
     \end{longtable}
 \end{center}
@@ -205,7 +248,7 @@ V pričujočem zaključnem delu so uporabljene naslednje kratice:
 Magistrsko delo je nastalo v sodelovanju s podjetjem Iskraemeco~d.d. v oddelku
 Razvoj in raziskave, ki se ukvarja z razvojem pametnih števcev električne energije
 (ang. smart energy meter) in njihovih izmenljivih modulov.
-Pametni števec imajo poleg funkcij za merjenje električne energije tudi vlogo zbiranja in pošiljanja podatkov iz drugih merilnih naprav v gospodinjstvu (npr. vodni števec, kalorimeter, števec plina) \cite{skalar_zasnova_nodate}. V večini primerov podatke iz drugih merilnih naprav zbirajo preko lokalnih žičnih in brezžičnih omrežij (M-Bus, wM-Bus, RS-485), agregirane podatke pa nato pošljejo naprej preko komunikacije po elektroenergetskem omrežju (G3-PLC) ali pa preko mobilnega omrežja (npr. GPRS, LTE-M, Nb-IoT), kot to prikazuje slika \ref{AMI arhitektura}. 
+Pametni števci imajo poleg funkcij za merjenje električne energije tudi vlogo zbiranja in pošiljanja podatkov iz drugih merilnih naprav v gospodinjstvu (npr. vodni števec, kalorimeter, števec plina) \cite{skalar_zasnova_nodate}. V večini primerov podatke iz drugih merilnih naprav zbirajo preko lokalnih žičnih in brezžičnih omrežij (M-Bus, wM-Bus, RS-485), agregirane podatke pa nato pošljejo naprej preko komunikacije po elektroenergetskem omrežju (G3-PLC) ali pa preko mobilnega omrežja (npr. GPRS, LTE-M, Nb-IoT), kot to prikazuje slika \ref{AMI arhitektura}. 
 
 \begin{figure}[h]
     \centering
@@ -241,7 +284,7 @@ Komunikacijski modem števcu omogoča naslednje funkcije:
 %******************************* POGLAVJA **************************************
 
 \chapter{Primerjava mobilnih omrežij za odčitavanje števcev} \label{Primerjava mobilnih omrežij za odčitavanje števcev}
-    Mobilna omrežja predstavljajo pomemben komunikacijski medij za daljinsko odčitavanje števcev in prenos merilnih podatkov v naprednih merilnih sistemih (AMI). Leta 1988 je Iskraemeco predstavil prvi elektronski sistem za samodejno odčitavanje števcev (AMR), 1998 pa prvi rezidenčni AMR sistem za gospodinjske uporabnike \cite{Iskraemeco_80_let}. Števec MT372, ki je omogočal prenos podatkov po omrežju 2G je bil razvit leta 2005.
+    Mobilna omrežja predstavljajo pomemben komunikacijski medij za daljinsko odčitavanje števcev in prenos merilnih podatkov v naprednih merilnih sistemih (AMI). Leta 1988 je Iskraemeco predstavil prvi elektronski sistem za samodejno odčitavanje števcev (AMR), 1998 pa prvi rezidenčni AMR sistem za gospodinjske uporabnike \cite{Iskraemeco_80_let}. Števec MT372, ki je omogočal prenos podatkov po omrežju 2G, je bil razvit leta 2005.
     Za odčitavanje števcev se v Iskraemecu uporablja več različnih mobilnih omrežnih tehnologij. Časovni razvoj in razdelitev mobilnih omrežij po generacijah prikazuje slika \ref{omrezje}.
     
     \begin{figure}[H]
@@ -252,7 +295,7 @@ Komunikacijski modem števcu omogoča naslednje funkcije:
 
 \section{Omrežja druge generacije} \label{2G}
 
-Omrežja druge generacije (2G) temeljijo na sistemu GSM, ki je bil prvič implementiran leta 1991 kot tokovno komutirano omrežje, primarno namenjeno glasovni telefoniji. Frekvenčni spekter danes še vedno uporabljenega sistema GSM je razdeljen na 25 MHz široke pasove \cite{GPRS}, pri čemer je vsak pas nadalje razdeljen na 125 kanalov s pasovno širino 200 kHz. Kanali so označeni z identifikacijsko številko ARFCN. Dodatno je v uporabi še časovni sodostop (TDMA), ki vsak posamezen frekvenčni kanal razdeli na osem časovnih rež, uporabljena modulacijska tehnika pa je GMSK. Nazivna hitrost prenosa podatkov v osnovnem  sistemu GSM  znaša \SI{9,6}{\kilo\bit\per\second}.
+Omrežja druge generacije (2G) temeljijo na sistemu GSM, ki je bil prvič implementiran leta 1991 kot vodovno komutirano omrežje, primarno namenjeno glasovni telefoniji. Frekvenčni spekter danes še vedno uporabljenega sistema GSM je razdeljen na 25 MHz široke pasove \cite{GPRS}, pri čemer je vsak pas nadalje razdeljen na 125 kanalov s pasovno širino 200 kHz. Kanali so označeni z identifikacijsko številko ARFCN. Dodatno je v uporabi še časovni sodostop (TDMA), ki vsak posamezen frekvenčni kanal razdeli na osem časovnih rež, uporabljena modulacijska tehnika pa je GMSK. Nazivna hitrost prenosa podatkov v osnovnem  sistemu GSM  znaša \SI{9,6}{\kilo\bit\per\second}.
 
 \begin{footnotesize}
 \begin{table}[H]
@@ -274,20 +317,20 @@ Omrežja druge generacije (2G) temeljijo na sistemu GSM, ki je bil prvič implem
 \end{table}
 \end{footnotesize}
 
-Sistem GPRS (t. i. 2.5G) je bil razvit kot nadgradnja GSM, pri čemer uvaja paketno komutirano prenosno tehniko namesto izključno tokovno komutirane. Odvisno od uporabljenega kodnega načina in razpoložljivega števila časovnih rež znaša hitrost prenosa podatkov med približno \SI{56}{\kilo\bit\per\second} in \SI{114}{\kilo\bit\per\second} \cite{ETSI_TS_101_350}.
+Sistem GPRS (t. i. 2.5G) je bil razvit kot nadgradnja GSM, pri čemer uvaja paketno komutirano prenosno tehniko namesto izključno vodovno komutirane. Odvisno od uporabljenega kodnega načina in razpoložljivega števila časovnih rež znaša hitrost prenosa podatkov med približno \SI{56}{\kilo\bit\per\second} in \SI{114}{\kilo\bit\per\second} \cite{ETSI_TS_101_350}.
 
-Tehnologija EDGE (t. i. 2.75G) predstavlja nadaljnjo nadgradnjo GPRS. Poleg modulacije GMSK uporablja še modulacijsko shemo 8PSK, kar omogoča bistveno večjo podatkovno prepustnost. Največja teoretična hitrost prenosa podatkov lahko doseže do 473,6 kbps, pri čemer se še vedno uporablja isti frekvenčni spekter kot v sistemih GSM in GPRS \cite{GPRS}. Omrežja druge generacije se zaradi svoje razširjenosti in dobre pokritosti pogosto uporabljajo kot nadomestna (fallback) komunikacijska tehnologija.
+Tehnologija EDGE (t. i. 2.75G) predstavlja nadaljnjo nadgradnjo GPRS. Poleg modulacije GMSK uporablja še modulacijsko shemo 8PSK, kar omogoča bistveno večjo podatkovno prepustnost. Največja teoretična hitrost prenosa podatkov lahko doseže do \SI{473,6 }{\kilo\bit\per\second}, pri čemer se še vedno uporablja isti frekvenčni spekter kot v sistemih GSM in GPRS \cite{GPRS}. Omrežja druge generacije se zaradi svoje razširjenosti in dobre pokritosti pogosto uporabljajo kot nadomestna (fallback) komunikacijska tehnologija.
 
     
 
 
 \section{Omrežja tretje generacije} \label{sec:3g}
-    Omrežja tretje generacije so bila uvedena s tehnologijo UMTS (Release 99), ki med drugim namesto kombinacije TDMA in FDMA uporablja sodostop WCDMA, zaradi česar se tudi pasovna širina kanala poveča na \SI{5}{\mega\hertz}. Kasneje se pod omrežji tretje generacije razvijejo še HSDPA ter HSUPA. Skupaj sta tvorili tehnologijo HSPA, ki je bila kasneje nadgrajena v HSPA+ (Release 7). Večina evropskih in slovenskih operaterjev je omrežja tretje generacije upokojila zaradi potreb po frekvenčnem spektru za nadaljnji razvoj omrežja 4G in 5G \cite{3Gupokojitev}.
+    Omrežja tretje generacije so bila uvedena s tehnologijo UMTS (Release 99), ki med drugim namesto kombinacije TDMA in FDMA uporablja sodostop WCDMA, zaradi česar se tudi pasovna širina kanala poveča na \SI{5}{\mega\hertz}. Kasneje se pod omrežji tretje generacije razvijejo še HSDPA ter HSUPA. Skupaj sta tvorili tehnologijo HSPA, ki je bila kasneje nadgrajena v HSPA+ (Release 7). Večina evropskih in slovenskih operaterjev je omrežja tretje generacije opustila zaradi potreb po frekvenčnem spektru za nadaljnji razvoj omrežja 4G in 5G \cite{3Gupokojitev}.
     
 \section{Omrežja četrte generacije} \label{sec:4g}
     LTE je 3GPP razvil kot naslednika omrežij UMTS in HSPA v okviru specifikacij Release~8 (2008). Uporablja modulacijo OFDMA v smeri proti uporabniku in SC-FDMA v smeri od uporabnika. Promet v LTE poteka izključno paketno prek protokola IP. Podpira več pasovnih širin, od \SIrange{1,4}{20}{\mega\hertz}, v konfiguraciji SISO je teoretična največja hitrost prenosa pri \SI{20}{\mega\hertz} do \SI{100}{\mega\bit\per\second} v smeri proti uporabniku in do \SI{50}{\mega\bit\per\second} v smeri od uporabnika.
 
-    Iz LTE sta se kasneje razvila LTE Cat~1, namenjen napravam, ki ne potrebujejo velikih hitrosti prenosa podatkov, ter (z Release~13) LTE Cat~1bis, ki dodatno poenostavi strojno opremo zaradi uporabe ene antene namesto dveh, predpisanih pri LTE Cat~1 \cite{ETSI_TS_136_306_V13.5}. LTE-M (LTE Cat-M1) je predstavljen v Release~12 kot standard LPWA, namenjen predvsem IoT- in M2M-povezavam ter baterijsko napajanim napravam \cite{LTE-M}. Pasovna širina je \SI{1,4}{\mega\hertz}, hitrost prenosa podatkov pa do približno\SI{1}{\mega\bit\per\second}.
+    Iz LTE sta se kasneje razvila LTE Cat~1, namenjen napravam, ki ne potrebujejo velikih hitrosti prenosa podatkov, ter (z Release~13) LTE Cat~1bis, ki dodatno poenostavi strojno opremo zaradi uporabe ene antene namesto dveh, predpisanih pri LTE Cat~1 \cite{ETSI_TS_136_306_V13.5}. LTE-M (LTE Cat-M1) je predstavljen v Release~12 kot standard LPWA, namenjen predvsem IoT- in M2M-povezavam ter baterijsko napajanim napravam \cite{LTE-M}. Pasovna širina je \SI{1,4}{\mega\hertz}, hitrost prenosa podatkov pa do približno \SI{1}{\mega\bit\per\second}.
 
     V Release~13 je opisan Narrowband Internet of Things (NB-IoT), ki omogoča še nižjo porabo energije in večjo prodornost, vendar v zameno za počasnejši prenos podatkov in daljše zakasnitve \cite{NBIoT}. Za odčitavanje in parametriranje pametnega števca se je po izkušnjah bolje izkazal LTE Cat-M1, saj zaradi višje hitrosti prenosa podatkov olajša nadgradnjo vdelane programske opreme (FOTA) ter branje večje količine podatkov \cite{Trendi_komunikacijskih_tehnologij}. Poleg tega je LTE Cat-M1 primernejši z vidika menjave operaterja in uporabe kartice eSIM namesto klasične kartice SIM .
 \begin{footnotesize}
@@ -313,7 +356,7 @@ Tehnologija EDGE (t. i. 2.75G) predstavlja nadaljnjo nadgradnjo GPRS. Poleg modu
     
 \chapter{Potek načrtovanja in razvoja komunikacijskega modula} \label{Potek načrtovanja in razvoja komunikacijskega modula}
 Komunikacijski moduli podjetja Iskraemeco so lahko uporabljeni na enofaznih, trofaznih ali indirektnih števcih, zato mora biti modul  kompatibilen z že razvitimi števci. Interni standard Iskraemeco P* predpisuje dimenzije modula, glavne električne lastnosti modula, signale med modulom in števcem, njihovo časovno odvisnost ter osnovne ukaze AT. V tem poglavju bomo opisali osnovne zahteve za razvoj komunikacijskega modula ter razložili delovanje nekaterih funkcij, ki jih modul opravlja.\newline
-Števec električne energije ima na svojem zgornjem levem robu priključek FEM (Field exchangeable module). Na ta konektor se pritrdi komunikacijski modul. Zaradi morebitne menjave modula ali menjave kartice SIM se lahko modul kadarkoli med delovanjem števca odstrani oziroma vgradi nazaj, brez da bi to kakorkoli vplivalo na delovanje števca. Števec odstranitev modula zazna ter zapiše v svoj dnevnik, saj gre lahko za poskus manipulacije števca. Vgrajen modul prikazuje slika \ref{modul_v_stevcu}.
+Števec električne energije ima na svojem zgornjem levem robu priključek FEM (Field exchangeable module). Na ta konektor se pritrdi komunikacijski modul. Zaradi morebitne menjave modula ali menjave kartice SIM se lahko modul kadarkoli med delovanjem števca odstrani oziroma vgradi nazaj,ne da bi to kakorkoli vplivalo na delovanje števca. Števec odstranitev modula zazna ter zapiše v svoj dnevnik, saj gre lahko za poskus manipulacije števca. Vgrajen modul prikazuje slika \ref{modul_v_stevcu}.
 
 \begin{figure}[h]
     \centering
@@ -321,7 +364,7 @@ Komunikacijski moduli podjetja Iskraemeco so lahko uporabljeni na enofaznih, tro
     \caption{\label{modul_v_stevcu}Lokacija komunikacijskega modula v pametnem števcu}
 \end{figure}
 \section {Zahteve za komunikacijski modul}
-Komunikacija med števcem in modulom poteka preko protokola UART s hitrostjo 115200 $baud$, 8 podatkovnimi biti in enim stop bitom (115200 8N1) brez strojnega krmiljenja pretoka (angl. hardware flow control). Podpirati mora tudi UART kanal za razhroščevanje, preko katerega omogoča nalaganje vgrajene programske opreme s hitrostjo do 3 $Mbaud$ z opcijskim strojnim krmiljenjem pretoka, določene ukaze ter povezavo USB za dodatne možnosti razvoja in razhroščevanja. Maksimalni tok, ki lahko iz števca steče v modul preko konektorja FEM je \SI{1}{\ampere}, vsa komunikacija s števcem pa je na \SI{3,3}{\volt} napetostnem nivoju. Modul mora vzdržati nenapovedano odstranitev iz števca oziroma odklop napajanja ter podpirati tehnologije LTE Cat-M in NB-IoT s preklopom na GPRS v primeru nedosegljivosti teh omrežij. Z variantno opremljenostjo naj omogoča klasično izmenljivo kartico SIM v formatu 2FF ali eSIM kartico v formatu MFF2. Frekvenčni pasovi, ki naj jih modul podpira, so navedeni v tabeli \ref{tab:bg955_bands}. Na koncu razvoja mora v kombinaciji z števcem ustrezno prestati vse validacijske funkcijske teste, EMC testiranje ter dosegati s standardom predpisane vrednosti TRP in TIS. Izdelava in testiranje modula naj bosta čimbolj enostavna.
+Komunikacija med števcem in modulom poteka preko protokola UART s hitrostjo 115200 $baud$, 8 podatkovnimi biti in enim stop bitom (115200 8N1) brez strojnega krmiljenja pretoka (angl. hardware flow control). Podpirati mora tudi UART kanal za razhroščevanje, preko katerega omogoča nalaganje vgrajene programske opreme s hitrostjo do 3 $Mbaud$ z opcijskim strojnim krmiljenjem pretoka, določene ukaze ter povezavo USB za dodatne možnosti razvoja in razhroščevanja. Maksimalni tok, ki lahko iz števca steče v modul preko konektorja FEM, je \SI{1}{\ampere}, vsa komunikacija s števcem pa je na \SI{3,3}{\volt} napetostnem nivoju. Modul mora vzdržati nenapovedano odstranitev iz števca oziroma odklop napajanja ter podpirati tehnologije LTE Cat-M in NB-IoT s preklopom na GPRS v primeru nedosegljivosti teh omrežij. Z variantno opremljenostjo naj omogoča klasično izmenljivo kartico SIM v formatu 2FF ali eSIM kartico v formatu MFF2. Frekvenčni pasovi, ki naj jih modul podpira, so navedeni v tabeli \ref{tab:bg955_bands}. Na koncu razvoja mora v kombinaciji z števcem ustrezno prestati vse validacijske funkcijske teste, EMC testiranje ter dosegati s standardom predpisane vrednosti TRP in TIS. Izdelava in testiranje modula naj bosta čim bolj enostavna.
 Glede na sledeče zahteve smo izdelali blokovni diagram komunikacijskega modula, ki ga prikazuje slika \ref{blok diagram modula}
 \begin{figure}[h]
     \centering
@@ -357,7 +400,7 @@ Glavni element našega vezja je modem. Glede na več metrik in strateške cilje 
     \end{tabular}
 \end{table}
 
-Modem je v paketu LGA ter ima v sebi skoraj vso potrebno periferijo. Deluje na 1.8$V$ logičnih nivojih, zato je potrebno vse signale iz števca ustrezno pretvoriti iz 3,3$V$ na 1.8$V$. Ima dva kanala UART, eden služi kot glavni komunikacijski kanal s števcem (\textit{Main} UART), drugi pa kot kanal za razhroščevanje (\textit{Debug} UART). Komunikacija med števcem in modulom je nastavljena na hitrost 115200 baud, 8 podatkovnih bitov, 1 stop bit ter ne uporablja paritetnega bita. Po uvodni sekvenci števec in modul za komunikacijo začneta uporabljati protokol CMUX, ki je implementacija standarda 3GPP TS 27.010. Protokol CMUX omogoča multipleksiranje do štirih virtualnih kanalov DLCI0 do DLCI3 . Kanal DLC0 je namenjen krmiljenju multipleksiranja, DLCI1 je namenjen ukazom AT, kanala DLCI2 in DLCI3 pa prenosu paketov IPv4/IPv6 z možnostjo enkapsulacije PPP. Pretvornik nivojev je predstavljen na sliki \ref{napetostni pretvornik}.  
+Modem je v paketu LGA ter ima v sebi skoraj vso potrebno periferijo. Deluje na \SI{1,8}{\volt} logičnih nivojih, zato je potrebno vse signale iz števca ustrezno pretvoriti iz \SI{3,3}{\volt} na \SI{1,8}{\volt}. Ima dva kanala UART, eden služi kot glavni komunikacijski kanal s števcem (\textit{Main} UART), drugi pa kot kanal za razhroščevanje (\textit{Debug} UART). Komunikacija med števcem in modulom je nastavljena na hitrost 115200 baud, 8 podatkovnih bitov, 1 stop bit ter ne uporablja paritetnega bita. Po uvodni sekvenci števec in modul za komunikacijo začneta uporabljati protokol CMUX, ki je implementacija standarda 3GPP TS 27.010. Protokol CMUX omogoča multipleksiranje do štirih virtualnih kanalov DLCI0 do DLCI3 . Kanal DLCI0 je namenjen krmiljenju multipleksiranja, DLCI1 je namenjen ukazom AT, kanala DLCI2 in DLCI3 pa prenosu paketov IPv4/IPv6 z možnostjo enkapsulacije PPP. Pretvornik nivojev je predstavljen na sliki \ref{napetostni pretvornik}.  
 
 \begin{figure}[h]
     \centering
@@ -367,11 +410,11 @@ Modem je v paketu LGA ter ima v sebi skoraj vso potrebno periferijo. Deluje na 1
 \end{figure}
 
 
-V našem primeru je pri komunikaciji  \textit{Main} UART aktivno stanje predstavljeno z nizkim logičnim nivojem. Ko števec preko TX linije Main UART postavi signal \texttt{COM\_TX} na nizek logični nivo (negativni prehod), tranzistor NPN Q100 preide v nasičenje. Posledično se napetost na liniji \texttt{BG955\_MAIN\_UART\_RX} zniža na  napetost  $U_{CE(sat)}$ nasičenega tranzistorja Q100. Ob pozitivnem prehodu signala \texttt{COM\_TX} iz nizkega v visoko logično stanje tranzistor Q100 preneha prevajato, upor R106 pa povzroči dvig napetosti na liniji \texttt{BG955\_MAIN\_UART\_RX} na napetost \texttt{VDD\_EXT}, s čimer je na vhodu modula BG955A-GL vzpostavljeno visoko logično stanje. 
-Števec krmili tudi \texttt{nRESET} signal na komunikacijskem modulu. Pin je na števčnem mikrokrmilniku definiran kot GPIO in ne kot \textit{open collector}, zato je na njem vedno napetost \SI{0}{\volt} oziroma \SI{3.3}{\volt}. Da zagotovimo ustrezno nizek napetotostni nivo na pinu \texttt{nRESET} komunikacijskega modula, smo pin na števec povezali preko schottky diode. Za kontrolirano stanje na pinu ima modul interni \textit{pull-up} upor. Tako je ob visokem nivoju dioda zaporno polarizirana, ob nizkem stanju pa dioda začne prevajati ter povzroči nizko stanje na \texttt{nRESET} pinu. Napetost na pinu ni \SI{0}{\volt}, temveč $U_{k}$ diode, ki pa je zaradi ustreznega tipa diode ter nizkega toka skozi diodo dovolj nizek, da signal ni v prepovedanem območju po proizvajalčevem podatkovnem listu. \textit{Debug} UART ne potrebuje dodatne pretvorbe napetosti, saj za to poskrbi interno razvit  \textit{UART USB} adapter, ki ga preko konektorja FTSH proizvajalca Samtech namestimo na sam modul. \textit{Debug} UART se je v postopku vpeljave novega komunikacijskega modema izkazal kot praktično orodje za diagnostiko in prepisovanje vgrajene programske opreme, saj je v primerjavi z povezavo USB bolj preprost in je dostopen takoj ob prižigu modema, medtem ko je USB potrebno omogočiti z ukazom AT. 
+V našem primeru je pri komunikaciji  \textit{Main} UART aktivno stanje predstavljeno z nizkim logičnim nivojem. Ko števec preko TX linije Main UART postavi signal \texttt{COM\_TX} na nizek logični nivo (negativni prehod), tranzistor NPN Q100 preide v nasičenje. Posledično se napetost na liniji \texttt{BG955\_MAIN\_UART\_RX} zniža na  napetost  $U_{CE(sat)}$ nasičenega tranzistorja Q100. Ob pozitivnem prehodu signala \texttt{COM\_TX} iz nizkega v visoko logično stanje tranzistor Q100 preneha prevajati, upor R106 pa povzroči dvig napetosti na liniji \texttt{BG955\_MAIN\_UART\_RX} na napetost \texttt{VDD\_EXT}, s čimer je na vhodu modula BG955A-GL vzpostavljeno visoko logično stanje. 
+Števec krmili tudi \texttt{nRESET} signal na komunikacijskem modulu. Pin je na števčnem mikrokrmilniku definiran kot GPIO in ne kot \textit{open collector}, zato je na njem vedno napetost \SI{0}{\volt} oziroma \SI{3.3}{\volt}. Da zagotovimo ustrezno nizek napetostni nivo na pinu \texttt{nRESET} komunikacijskega modula, smo pin na števec povezali preko schottky diode. Za kontrolirano stanje na pinu ima modul interni \textit{pull-up} upor. Tako je ob visokem nivoju dioda zaporno polarizirana, ob nizkem stanju pa dioda začne prevajati ter povzroči nizko stanje na \texttt{nRESET} pinu. Napetost na pinu ni \SI{0}{\volt}, temveč $U_{k}$ diode, ki pa je zaradi ustreznega tipa diode ter nizkega toka skozi diodo dovolj nizek, da signal ni v prepovedanem območju po proizvajalčevem podatkovnem listu. \textit{Debug} UART ne potrebuje dodatne pretvorbe napetosti, saj za to poskrbi interno razvit  \textit{UART USB} adapter, ki ga preko konektorja FTSH proizvajalca Samtech namestimo na sam modul. \textit{Debug} UART se je v postopku vpeljave novega komunikacijskega modema izkazal kot praktično orodje za diagnostiko in prepisovanje vgrajene programske opreme, saj je v primerjavi z povezavo USB bolj preprost in je dostopen takoj ob prižigu modema, medtem ko je USB potrebno omogočiti z ukazom AT. 
 
 \section {Napajanje komunikacijskega modula}
-Števec napaja modul direktno iz stikalnega napajalnika, namenjenega za napajanje glavnega mikrokrmilnika in ostale periferije, zato je pomembno, da komunikacijski modul v nobenem trenutku ne vzame več toka, kot je to predpisano v standardu P*. Modul se napaja z napetostjo \SI{4}{\volt}, na konektorju FEM pa je prisotna tudi napetost \SI{3,3}{\volt} za potrebe pretvornikov nivojev. Ob prižigu števca sta napajalna napetost ter \texttt{nReset} signal na ugasnjena oz. \SI{0}{\volt}. Števec po svoji inicializaciji vklopi napajanje modula, 3s kasneje pa sledi dvig signala \texttt{nRESET} na \SI{3,3}{\volt}. Blokovno shemo napajalnika v števcu prikazuje slika \ref{blok_shema_napajanje_stevec}. 
+Števec napaja modul direktno iz stikalnega napajalnika, namenjenega za napajanje glavnega mikrokrmilnika in ostale periferije, zato je pomembno, da komunikacijski modul v nobenem trenutku ne vzame več toka, kot je to predpisano v standardu P*. Modul se napaja z napetostjo \SI{4}{\volt}, na konektorju FEM pa je prisotna tudi napetost \SI{3,3}{\volt} za potrebe pretvornikov nivojev. Ob prižigu števca sta napajalna napetost ter \texttt{nReset} signal ugasnjena oz. \SI{0}{\volt}. Števec po svoji inicializaciji vklopi napajanje modula, \SI{3}{\second} kasneje pa sledi dvig signala \texttt{nRESET} na \SI{3,3}{\volt}. Blokovno shemo napajalnika v števcu prikazuje slika \ref{blok_shema_napajanje_stevec}. 
  
 \begin{figure}[htbp]
     \centering
@@ -380,7 +423,7 @@ V našem primeru je pri komunikaciji  \textit{Main} UART aktivno stanje predstav
     \label{blok_shema_napajanje_stevec}
 \end{figure}
 
-Ker BG955A-GL podpira omrežje GPRS, je potrebno zaradi t.i. TX burstov zagotoviti primerno velike blokirne kondenzatorje, ki bodo zagotavljali, da se napetost med delovanjem modula ne bo sesedla. Ker so v primeru vgradnje modula v delujoči števec kondenzatorji prazni, smo z tokovno limito zagotovili, da se stikalni napajalnik v števcu ob nenadni obremenitvi ne bo sesedel. Izbrali smo nastavljivo tokovno limito MP62551 proizvajalca MPS, ki ji lahko z uporom poljubno nastavimo limito od \SIrange{60}{1700}{\milli\ampere}. Upornost NMOS tranzistroja v čipu je \SI{100}{\milli\ohm}, kar nam ob določeni limiti \SI{1}{\ampere} prinese sprejemljiv padec napetosti \SI{100}{\milli\volt}. Naša zahteva za tokovno limito je bila še zaščita pred prevajanjem toka v smeri proti števcu.
+Ker BG955A-GL podpira omrežje GPRS, je potrebno zaradi t. i. TX burstov zagotoviti primerno velike blokirne kondenzatorje, ki bodo zagotavljali, da se napetost med delovanjem modula ne bo sesedla. Ker so v primeru vgradnje modula v delujoči števec kondenzatorji prazni, smo z tokovno limito zagotovili, da se stikalni napajalnik v števcu ob nenadni obremenitvi ne bo sesedel. Izbrali smo nastavljivo tokovno limito MP62551 proizvajalca MPS, ki ji lahko z uporom poljubno nastavimo limito od \SIrange{60}{1700}{\milli\ampere}. Upornost NMOS tranzistorja v čipu je \SI{100}{\milli\ohm}, kar nam ob določeni limiti \SI{1}{\ampere} prinese sprejemljiv padec napetosti \SI{100}{\milli\volt}. Naša zahteva za tokovno limito je bila še zaščita pred prevajanjem toka v smeri proti števcu.
 
 \section {Vklop komunikacijskega modula}
 Ko števec modulu vklopi napajanje in postavi  signal \texttt{nReset}, modul potrebuje \SIrange{500}{1000}{\milli\second} širok negativni pulz na za to določenem pinu PWRKEY. Časovni potek vklopa modula prikazuje slika \ref{prizig_modula_BG955_HW_guide}.
@@ -392,7 +435,7 @@ Ko števec modulu vklopi napajanje in postavi  signal \texttt{nReset}, modul pot
     \label{prizig_modula_BG955_HW_guide}
 \end{figure}
 
-Pin ima interni \SI{470}{\kilo\ohm} \textit{pull-up} upor. Ker po standardu P* na konektor FEM svojem vmesniku nima za to namenjenega pina, smo zasnovali diskretno rešitev, ki jo prikazuje slika \ref{pwrkey}. Ob vklopu napajanja tranzistor PMOS  Q103 ne prevaja, zato ne prevevaje tudi tranzistor NMOS Q104 ter posledično je signal \texttt{BG\_955\_PWRKEY} definiran z internim pull-up uporom. Ko števec postavi signal \texttt{nRESET} v visoko stanje, tranzistor Q103 začne prevajati, kar povzroči polnjenje RC člena, sestavljenega iz upora R113 in kondenzatorja C115. Naloga prvega RC člena je pulz zakasniti, drugi RC člen iz upora R115 ter kondenzatorja C117 pa se obnaša kot diferenciator - saj na vrata tranzistorja Q104 prenese zgolj spremembo vhodne napetosti, medtem ko se kondenzator C117 prazni preko upora R115. Ko je napetost med vrati $U_{gs}$ tranzistorja Q104 večja od njegove pragovne napetosti $U_{GSth}$, se tranzistor odpre ter povzroči padec napetosti na liniji \texttt{BG\_955\_PWRKEY} na napetost \SI{0}{\volt}. 
+Pin ima interni \SI{470}{\kilo\ohm} \textit{pull-up} upor. Ker konektor FEM po standardu P* na svojem vmesniku nima za to namenjenega pina, smo zasnovali diskretno rešitev, ki jo prikazuje slika \ref{pwrkey}. Ob vklopu napajanja tranzistor PMOS  Q103 ne prevaja, zato ne prevaja tudi tranzistor NMOS Q104 ter posledično je signal \texttt{BG\_955\_PWRKEY} definiran z internim pull-up uporom. Ko števec postavi signal \texttt{nRESET} v visoko stanje, tranzistor Q103 začne prevajati, kar povzroči polnjenje RC člena, sestavljenega iz upora R113 in kondenzatorja C115. Naloga prvega RC člena je pulz zakasniti, drugi RC člen iz upora R115 ter kondenzatorja C117 pa se obnaša kot diferenciator, saj na vrata tranzistorja Q104 prenese zgolj spremembo vhodne napetosti, medtem ko se kondenzator C117 prazni preko upora R115. Ko je napetost med vrati $U_{gs}$ tranzistorja Q104 večja od njegove pragovne napetosti $U_{GSth}$, se tranzistor odpre ter povzroči padec napetosti na liniji \texttt{BG\_955\_PWRKEY} na napetost \SI{0}{\volt}. 
 Po preteku časovne konstante RC člena R115-C117 napetost na vratih tranzistorja pade pod pragovno napetost $U_{GSth}$, tranzistor Q104 preneha prevajati, linija \texttt{BG\_955\_PWRKEY} pa se zaradi internega pull-up upora ponovno postavi v logično visoko stanje. 
 \begin{figure}[h]
     \centering
@@ -402,7 +445,7 @@ Po preteku časovne konstante RC člena R115-C117 napetost na vratih tranzistorj
 \end{figure}
 \newpage
 \section {Antena }
-Antenski sklop omogoča, da lahko komunikacijski modul skupaj s števcem zanesljivo komunicira po brezžičnih omrežjih. Antena na komunikacijskem modulu mora podpirati več različnih frekvenčnih pasov, ki so navedeni v tabeli \ref{tab:bg955_bands}, frekvenčni spekter v katerem bo antena delovala pa slika \ref{occupied_spectrum}. Iz slike lahko razberemo, da mora naša antena delovati v dveh frekvenčnih področjih \SIrange{703}{960}{MHz} in \SIrange{1710}{1880}{MHz}. Antenski sklop smo na predhodnih projektih načrtovali skupaj z podjetjem Ignion, ki nam je s simulacijami pomagalo določiti optimalen prostor ter prilagoditveno vezje za anteno. Izbrali smo linearno polarizirano čip anteno z enakomernim sevalnim diagramom, ki se jo na tiskano vezje pritrdi kot SMD komponento. Na njene lastnosti vplivajo številni dejavniki, med drugim oblika in dimenzije tiskanega vezja, geometrija ozemljitvene ravnine (angl ground plane), bližina večjih kovinskih ali dielektričnih komponent ter nenazadnje tudi oblika in material ohišja. Cilj pri načrtovanju prilagoditvenega vezja je impedanco antene v želenem frekvenčnem območju čim bolje prilagoditi impedanci komunikacijskega modula in karakteristični impedanci prenosne poti. V našem primeru je impedanca modula \SI{50}{\ohm}, za enako impedanco pa je načrtovana tudi prenosna pot. S tem zagotovimo, da se čim večji delež elektromagnetnega valovanja iz modula prenese na anteno in izseva v okolico ter obratno. Ključni parameter pri tem je odbojnost $\left|\Gamma\right|$, ki je določena kot razmerje med največjo in najmanjšo amplitudo napetosti stojnega vala. Iz nje lahko izpeljemo VSWR (tudi SWR) ter parametra $S_{11}$ oziroma $Return\ loss$, ki to razmerje opisujeta v logaritemski skali. Razmerje med posameznimi parametri opisujejo enačbe \ref{Odbojni_parametri}.
+Antenski sklop omogoča, da lahko komunikacijski modul skupaj s števcem zanesljivo komunicira po brezžičnih omrežjih. Antena na komunikacijskem modulu mora podpirati več različnih frekvenčnih pasov, ki so navedeni v tabeli \ref{tab:bg955_bands}, frekvenčni spekter, v katerem bo antena delovala, pa prikazuje slika \ref{occupied_spectrum}. Iz slike lahko razberemo, da mora naša antena delovati v dveh frekvenčnih področjih \SIrange{703}{960}{MHz} in \SIrange{1710}{1880}{MHz}. Antenski sklop smo na predhodnih projektih načrtovali skupaj z podjetjem Ignion, ki nam je s simulacijami pomagalo določiti optimalen prostor ter prilagoditveno vezje za anteno. Izbrali smo linearno polarizirano čip anteno z enakomernim sevalnim diagramom, ki se jo na tiskano vezje pritrdi kot SMD komponento. Na njene lastnosti vplivajo številni dejavniki, med drugim oblika in dimenzije tiskanega vezja, geometrija ozemljitvene ravnine (angl. ground plane), bližina večjih kovinskih ali dielektričnih komponent ter nenazadnje tudi oblika in material ohišja. Cilj pri načrtovanju prilagoditvenega vezja je impedanco antene v želenem frekvenčnem območju čim bolje prilagoditi impedanci komunikacijskega modula in karakteristični impedanci prenosne poti. V našem primeru je impedanca modula \SI{50}{\ohm}, za enako impedanco pa je načrtovana tudi prenosna pot. S tem zagotovimo, da se čim večji delež elektromagnetnega valovanja iz modula prenese na anteno in izseva v okolico ter obratno. Ključni parameter pri tem je odbojnost $\left|\Gamma\right|$, ki je določena kot razmerje med odbite proti vpadni amplitudi stojnega vala. Iz nje lahko izpeljemo VSWR (tudi SWR) ter parametra $S_{11}$ oziroma $Return\ loss$, ki to razmerje opisujeta v logaritemski skali. Razmerje med posameznimi parametri opisujejo enačbe \ref{Odbojni_parametri}.
 \begin{equation} 
 \begin{aligned}
 |\Gamma|&=\frac{|V^-|}{|V^+|}  \\
@@ -423,14 +466,14 @@ S_{11}&=20\log_{10}\left(|\Gamma|\right) \\
 \section {Kartica SIM}
 Z variantno opremljenostjo smo zagotovili podporo klasične kartice SIM kot tudi eSIM. Obe različici uporabljata iste signale, ki jih opisuje standard  ISO/IEC 7816-3:
 \begin{description}[leftmargin=3cm,itemsep=0pt,topsep=0pt,parsep=0pt]
-    \item SIM\_VDD - napajanje kartice SIM je lahko \SI{1.8}{\volt} (Razred C), \SI{3.3}{\volt} (Razred B) ali \SI{5}{\volt} (Razred A). BG955A-GL podpira kartice SIM razreda B in C, medtem ko se kartice razreda A praviloma ne uporabljajo več.
-    \item SIM\_DATA - dvosmerna komunikacija med modemom in kartico ki je sinhronizirana s signalom SIM\_CLK. Amplituda je določena z razredom kartice SIM.
-    \item SIM\_CLK - ura, ki jo generira modem. Protokol uskladitve ure opisuje standard ETSI TS 102 221, maksimalna frekvenca ure pa je lahko \SI{26}{\mega\hertz}
+    \item SIM\_VDD - napajanje kartice SIM je lahko \SI{1.8}{\volt} (Razred C), \SI{3.3}{\volt} (Razred B) ali \SI{5}{\volt} (Razred A). BG955A-GL podpira kartice SIM razreda B in C, medtem ko se kartice razreda A praviloma ne uporabljajo več,
+    \item SIM\_DATA - dvosmerna komunikacija med modemom in kartico, ki je sinhronizirana s signalom SIM\_CLK. Amplituda je določena z razredom kartice SIM,
+    \item SIM\_CLK - ura, ki jo generira modem. Protokol uskladitve ure opisuje standard ETSI TS 102 221, maksimalna frekvenca ure pa je lahko \SI{26}{\mega\hertz},
      \item SIM\_RST - reset kartice SIM. Napetostni nivo je določen z razredom kartice.
 \end{description}
 Med tipoma izbiramo s pomočjo \SI{0}{\ohm} uporov, ki preklopijo linije \textit{CLK in DATA}. Pri izbiri fizične kartice SIM čim bližje nosilca kartice dodamo ESD zaščito z nizko kapacitivnostjo, saj je nosilec kartice dostopen uporabniku.
 \section {USB}
-Povezava USB je na modul dodana z mislijo dodatnega razhroščevanja, vendar se tekom razvoja zaradi nepraktičnosti ni uporabljala. Za uporabo potrebujemo kabel TC2030-USB podjetja Tag-Connect, ki ima to prednost, da na samem modulu ne potrebujemo nobenega konektorja, ampak samo predpisano tiskovinsko masko na našem tiskanem vezju. Rešitev je primerna za tiskana vezja, kjer imamo na tiskanem vezju na voljo dovolj površine, v nasprotnem primeru pa nas lahko moti gostota lukenj skoti katere ne moremo speljati vezi niti po vmesnih slojih. Zraven konektorja smo dodali ESD zasčito z nizko kapacitivnostjo. Pozornost smo namenili ustreznemu dimenzioniranji diferencialnih linij. Kabel in pripadajoč odtis prikazuje slika \ref{TC2030}
+Povezava USB je na modul dodana z mislijo dodatnega razhroščevanja, vendar se med razvojem zaradi nepraktičnosti ni uporabljala. Za uporabo potrebujemo kabel TC2030-USB podjetja Tag-Connect, ki ima to prednost, da na samem modulu ne potrebujemo nobenega konektorja, ampak samo predpisano tiskovinsko masko na našem tiskanem vezju. Rešitev je primerna za tiskana vezja, kjer imamo na tiskanem vezju na voljo dovolj površine, v nasprotnem primeru pa nas lahko moti gostota lukenj skozi katere ne moremo speljati vezi niti po vmesnih slojih. Zraven konektorja smo dodali ESD zasčito z nizko kapacitivnostjo. Pozornost smo namenili ustreznemu dimenzioniranju diferencialnih linij. Kabel in pripadajoč odtis prikazuje slika \ref{TC2030}
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\columnwidth]{Slike/TC2030.png}
@@ -440,22 +483,22 @@ Povezava USB je na modul dodana z mislijo dodatnega razhroščevanja, vendar se 
 
 
 \section {Funkcija last gasp}
-Ker je števec priklopljen na omrežje, mora biti vedno pripravljen na nenadni izklop. Detekcijo izpada napajanja opravlja na napetosti \SI{20}{\volt}, kot prikazuje slika \ref{blok_shema_napajanje_stevec}. Ob zaznanem izpadu se lahko (na števcih, ki to podpirajo) sproži funkcija \textit{last gasp}, katere namen je opozoriti distribucijo s potisnim sporočilom, da je na omrežju prišlo do okvare oziroma izpada napajanja. Pogoj, da se funkcija izvede je napolnjen ultra kondenzator. Glavni parametri funkcije so:
+Ker je števec priklopljen na omrežje, mora biti vedno pripravljen na nenadni izklop. Števec detekcijo izpada napajanja opravlja na napetosti \SI{20}{\volt}, kot prikazuje slika \ref{blok_shema_napajanje_stevec}. Ob zaznanem izpadu se lahko (na števcih, ki to podpirajo) sproži funkcija \textit{last gasp}, katere namen je opozoriti distribucijo s potisnim sporočilom, da je na omrežju prišlo do okvare oziroma izpada napajanja. Pogoj, da se funkcija izvede, je napolnjen ultra kondenzator. Glavni parametri funkcije so:
 \begin{itemize}
     \item destinacija in način pošiljanja - s tem parametrom nastavimo protokol in naslov IP  potisnega sporočila,
-    \item časovni interval \textit{ft}, po preteku katerega števec zaznani dogodek obravnava kot dejanski izpad napajanja ,
-    \item največji naključni časovni zamik \textit{rt} pred pošiljanjem potisnega sporočila. Ta preprečuje sočasno pošiljanje velikega števila sporočil z bližnjih števcev, kar bi lahko prekomerno obremenilo bazno postajo.
+    \item časovni interval ${t_f}$, po preteku katerega števec zaznani dogodek obravnava kot dejanski izpad napajanja ,
+    \item največji naključni časovni zamik ${t_r}$ pred pošiljanjem potisnega sporočila. Ta preprečuje sočasno pošiljanje velikega števila sporočil z bližnjih števcev, kar bi lahko prekomerno obremenilo bazno postajo.
 \end{itemize}
 \begin{equation}
     t_{\mathrm{max}} > t_f + t_r 
     \label{cas_last_gasp} 
 \end{equation}
     
-Med izpadom napajanja se števec in komunikacijski modul napajata iz ultra kondenzatorja, zato je potrebno za vse porabnike na števcu določiti, ali bodo v času izpada napajanja  $t_{max}$ prižgani, potrebno pa je tudi poskrbeti, da se mikrokontroler v števcu varno ustavi. 
+Med izpadom napajanja se števec in komunikacijski modul napajata iz ultra kondenzatorja, zato je potrebno za vse porabnike na števcu določiti, ali bodo v času izpada napajanja  $t_{max}$ prižgani, potrebno pa je tudi poskrbeti, da se mikrokrmilnik v števcu varno ustavi. 
 Čas $t_{max}$ je določen z enačbo \ref{cas_last_gasp}, je omejen z velikostjo ultra kondenzatorja in je določen na \SI{40}{\second}. Modul v času izvajanja funkcije ne dobi informacije, da je prišlo do izpada omrežja.
 
 \section {Varno ugašanje komunikacijskega modula}
-Ko ultra kondenzatorju zmanjka naboja, se \SI{4}{\volt} napetost na števcu začne sesedati. Predhodno je bil edini način ugašanja modula BG955A-GL z signalom powerkey ali pa z ukazom AT, to ugašanje pa je po podatkovnem listu lahko med \SIrange{650}{1500}{\milli\second}. Obstaja možnost, da bi med uporabo bliskovnega pomnilnika modulu odrezali napajanje, kar bi v skrajnih primerih lahko povzročilo okvaro pomnilnika. Tem okvaram se moramo v predpisani življenski dobi števca (15 let) izogniti na vsak način, saj je zamenjava modula za distribucijo skrajno nezaželena stvar.
+Ko ultra kondenzatorju na števcu zmanjka naboja, se \SI{4}{\volt} napetost na števcu začne sesedati. Predhodno je bil edini način ugašanja modula BG955A-GL z signalom powerkey ali pa z ukazom AT, to ugašanje pa je po podatkovnem listu lahko med \SIrange{650}{1500}{\milli\second}. Obstaja možnost, da bi med uporabo bliskovnega pomnilnika modulu odrezali napajanje, kar bi v skrajnih primerih lahko povzročilo okvaro pomnilnika. Tem okvaram se moramo v predpisani življenjski dobi števca (15 let) izogniti na vsak način, saj je zamenjava modula za distribucijo skrajno nezaželena stvar.
 Skupaj s proizvajalcem modula smo prišli do rešitve, in sicer je Quectel implementiral t.i. funkcijo \textit{fastshutdown}. Pin \texttt{GPIO6} na modulu ima definiran interni pull-up upor. Tekom delovanja modul spremlja pin, ter ko se naredi negativni prehod, konča z vpisovanjem v bliskovni pomnilnik ter se sam ugasne. Vezje, ki ob padcu napetosti naredi negativni prehod na \texttt{GPIO6} prikazuje slika \ref{fastshutdovn_vezje}.
 \begin{figure}[h]
     \centering
@@ -472,7 +515,7 @@ Nadzornik napetosti NCP308 je med delovanjem števca napajan iz glavne napajalne
     U_{\text{th}} &= \SI{0.405}{\volt}
 \end{aligned}
 \end{equation}
-Tranzistorski izhod v NCP308 preneha prevajati ko:
+Tranzistorski izhod v NCP308 preneha prevajati, ko:
 \begin{equation}
     U_{\text{sense}} \ge U_{\text{th}}
 \end{equation}
@@ -488,7 +531,7 @@ Izračunamo napetost $U_{\mathrm{TH}+}$ preklopa tranzistorja v NCP308:
     U_{\mathrm{TH}+} &= \SI{3.77}{\volt}
 \end{aligned}
 \end{equation}
-Tranzistorski izhod v NCP308 prične prevajati ko:
+Tranzistorski izhod v NCP308 prične prevajati, ko:
 \begin{equation}
     U_{\text{sense}} < U_{\text{th}}
 \end{equation}
@@ -496,7 +539,7 @@ Ob padajoči napajalni napetosti $U_{+4\mathrm{V}^\ast}$ je na izhodu NCP308 \SI
 \begin{equation}
     R_{111} \parallel R_{117} = \SI{63758.1}{\ohm}
 \end{equation}
-Izračunamo napetost $U_{\mathrm{TH}+}$ preklopa tranzistorja v NCP308:
+Izračunamo napetost $U_{\mathrm{TH}-}$ preklopa tranzistorja v NCP308:
 \begin{equation}
 \begin{aligned}
     U_{\mathrm{TH}-} &= \frac{U_{\text{th}}}{R_{100}}\,\left(R_{111} \parallel R_{117}\right) + U_{\text{th}} \\
@@ -505,7 +548,7 @@ Izračunamo napetost $U_{\mathrm{TH}+}$ preklopa tranzistorja v NCP308:
 \end{aligned}
 \end{equation}
 
-Ker je bila funkcija v začetnih verzijah implementacija slabo odzivna in nezanesljiva smo modulu dodali zalogo energije v obliki kondenzatorja EDLC. Kondenzatorji tipa EDLC imajo veliko gostoto energije, nizek ESR ter lahko vzdržujejo velike tokove. Za prve vzorce smo izbrali kondenzator S06R0SA474WB proizvajalca Abracon, katerega ključne karakteristike so:
+Ker je bila funkcija v začetnih verzijah implementacije slabo odzivna in nezanesljiva smo modulu dodali zalogo energije v obliki kondenzatorja EDLC. Kondenzatorji tipa EDLC imajo veliko gostoto energije, nizek ESR ter lahko vzdržujejo velike tokove. Za prve vzorce smo izbrali kondenzator S06R0SA474WB proizvajalca Abracon, katerega ključne karakteristike so:
 \begin{itemize}
     \item Kapacitivnost - \SI{0.47}{\farad}
     \item Napetost - \SI{6}{\volt}
@@ -513,7 +556,7 @@ Ker je bila funkcija v začetnih verzijah implementacija slabo odzivna in nezane
     \item Maksimalni tok - \SI{1}{\ampere}
 \end{itemize}  
 
-Da omejimo tok polnjenja, smo izbrali 2 upora velikostnega razreda 1206 (v enačbah označena kot \textit{R1} in \textit{R2}) upornosti \SI{16}{\ohm}. Ta rešitev je bila na izbrana, ker je cenovno ugodna ter enostavna ob predpostavki, da montiran števec kondenzator EDLC napolni samo ob hladnem zagonu števca (ko je $U_{EDLC}$ = \SI{0}{\volt}), nato pa kondenzator ostane nabit med delovanjem števca.
+Da omejimo tok polnjenja, smo izbrali 2 upora velikostnega razreda 1206 (v enačbah označena kot \textit{R1} in \textit{R2}) upornosti \SI{16}{\ohm}. Ta rešitev je bila izbrana, ker je cenovno ugodna ter enostavna ob predpostavki, da montiran števec kondenzator EDLC napolni samo ob hladnem zagonu števca (ko je $U_{EDLC}$ = \SI{0}{\volt}), nato pa kondenzator ostane nabit med delovanjem števca.
 Maksimalni polnilni tok kondenzatorja je:
 \begin{equation} 
 \begin{aligned}
@@ -537,10 +580,10 @@ Minimalna napajalna napetost \SI{3,3}{\volt} bo na kondenzatorju dosežena ob č
     \tau &= R\cdot C \\
     \SI{32}{\ohm} \cdot \SI{0,47}{\farad} &= \SI{15.04}{\second} \\
     \SI{3.3}{\volt} &=\SI{4}{\volt}\left(1-e^{-t/\SI{15.04}{\second}}\right) \\
-    t &\approx 26.2s 
+    t &\approx \SI{26,2}{\second} 
 \end{aligned} 
 \end{equation}
-Da zalogo energije v kondenzatorju efektivno izkoristimo, moramo dodati vezje, ki bo ob izpadu napajanja premostilo polnilne upore, na katerih bi ob odjemu energije iz kondeznatorja dobili padec napetosti. To naredimo z tranzistorjem PMOS, ki mu vrata odpira kar napajalna napetost \texttt{\SI{4}{\volt}}, tako bo edino izgubo predstavljala $R_{ds}$ tranzistorja PMOS. Shemo prikazuje slika \ref{EDLC}.
+Da zalogo energije v kondenzatorju efektivno izkoristimo, moramo dodati vezje, ki bo ob izpadu napajanja premostilo polnilne upore, na katerih bi ob odjemu energije iz kondenzatorja dobili padec napetosti. To naredimo z tranzistorjem PMOS, ki mu vrata odpira kar napajalna napetost \texttt{\SI{4}{\volt}}, tako bo edino izgubo predstavljala $R_{ds}$ tranzistorja PMOS. Shemo prikazuje slika \ref{EDLC}.
 
 \begin{figure}[h]
     \centering
@@ -550,13 +593,13 @@ Da zalogo energije v kondenzatorju efektivno izkoristimo, moramo dodati vezje, k
 \end{figure}
 \newpage
 \section{Načrtovanje tiskanega vezja}
-Ko smo z bili z rezultati simulacij in meritvami na prototipnih ploščah zadovoljni, smo narisali shemo in začeli načrtovati tiskano vezje. Vezje smo narisali v programu Altium Designer. Obliko tiskanega vezja, panel ter pozicijo konektorja smo imeli predhodno določeno. Odločili smo se za 4 slojno tiskanino, kjer je med prvim in drugim slojem \SI{0,18}{\milli\meter} razdalje, med drugim in tretjim \SI{1}{\milli\meter} in med tretjim in četrtim slojem spet \SI{0,18}{\milli\meter}. Notranja sloja sta debela \SI{35}{\micro\meter}, zunanja pa sta zaradi postopka izdelave vezja debela do \SI{60}{\micro\meter}.
+Ko smo bili z rezultati simulacij in meritvami na prototipnih ploščah zadovoljni, smo narisali shemo in začeli načrtovati tiskano vezje. Vezje smo narisali v programu Altium Designer. Obliko tiskanega vezja, panel ter pozicijo konektorja smo imeli predhodno določeno. Odločili smo se za 4-slojno tiskanino, kjer je med prvim in drugim slojem \SI{0,18}{\milli\meter} razdalje, med drugim in tretjim \SI{1}{\milli\meter} in med tretjim in četrtim slojem spet \SI{0,18}{\milli\meter}. Notranja sloja sta debela \SI{35}{\micro\meter}, zunanja pa sta zaradi postopka izdelave vezja debela do \SI{60}{\micro\meter}.
 Komunikacijski modul in anteno smo postavili skupaj, da je linija, ki ju povezuje, ustrezno kratka. Držali smo se naslednjih tehnoloških zahtev:
 \begin{itemize}
-    \item testne točke so na isti strani tiskanega vezja, da je je proizvodno testiranje modula čim bolj dostopno, minimalna razdalja med njimi pa je \SI{2,54}{\milli\meter}
+    \item testne točke so na isti strani tiskanega vezja, da je proizvodno testiranje modula čim bolj dostopno, minimalna razdalja med njimi pa je \SI{2,54}{\milli\meter}
     \item vse SMD komponente so opremljene na eni strani, na žalost pa nam tega ni uspelo zagotoviti za THT komponente, saj za kondenzatorja EDLC nismo mogli prestaviti na drugo stran zaradi omejitve z višino ohišja,
     \item v okolici konektorja ter kondenzatorja smo pustili dovolj prostora za postopek selektivnega spajkanja,
-    \item vezje smo ustrezno označili s fidušami.
+    \item vezje smo ustrezno označili s fiducialnimi oznakami.
 \end{itemize}
 Pri načrtovanju smo upoštevali:
 \begin{itemize}
@@ -594,9 +637,9 @@ Sloje tiskanega vezja prikazuje slika \ref{TIV}
 %    \label{Negativni_pulz_pwrkey}
 %\end{figure}
 \chapter{Testiranje komunikacijskega modula}
-Načrtovanjo tiskano vezje smo naročili ter ga opremili v proizvodni podjetja. Sledi testiranje pri katerem smo dali poudarek na funkcijske sklope opisane v zgornji poglavjih. Pri testiranju smo is pomagali z interno razvito vgrajeno programsko opremo \textit{Advanced Test Bench}, namenjeno razvojnemu in proizvodnemu testiranju. Omogoča nam testiranje strojne opreme in uporabo določenih delov periferije (GPIO, UART, SPI..) mikrokrmilnika na števcu.
+Načrtovano tiskano vezje smo naročili ter ga opremili v proizvodnji podjetja. Sledi testiranje, pri katerem smo dali poudarek na funkcijske sklope, opisane v zgornjih poglavjih. Pri testiranju smo si pomagali z interno razvito vgrajeno programsko opremo \textit{Advanced Test Bench}, namenjeno razvojnemu in proizvodnemu testiranju. Omogoča nam testiranje strojne opreme in uporabo določenih delov periferije (GPIO, UART, SPI..) mikrokrmilnika na števcu.
 \section{Prižig modula}
-Pri zagonu modema BG955 smo opazili, da je signal \texttt{PWRKEY} nižje napetosti kot smo jo pričakovali (\SI{1.8}{\volt}). Najprej smo za to okrivili tok puščanja tranzistorja NMOS ( \SI{1}{\micro\ampere}), v kombinaciji z velikim notranjim  \textit{pull-up} uporom (\SI{470}{\kilo\ohm}). Ob odstranitvi tranzistorja smo ugotovili, da napetost ostaja ista, torej že sam modul genereira napetost, nižjo od \SI{1.8}{\volt}. Položne prehode na liniji si razlagamo z zelo majhnim tokom \textit{Id} skozi tranzistor, ter posledično velikemu območju napetosti \textit{Ug}, pri kateri transtor še prevaja ta tok. Prižig modula prikazuje slika \ref{Negativni_pulz_pwrkey}.
+Pri zagonu modema BG955 smo opazili, da je signal \texttt{PWRKEY} nižje napetosti kot smo jo pričakovali (\SI{1.8}{\volt}). Najprej smo za to okrivili tok puščanja tranzistorja NMOS ( \SI{1}{\micro\ampere}), v kombinaciji z velikim notranjim  \textit{pull-up} uporom (\SI{470}{\kilo\ohm}). Ob odstranitvi tranzistorja smo ugotovili, da napetost ostaja ista, torej že sam modul generira napetost, nižjo od \SI{1.8}{\volt}. Položne prehode na liniji si razlagamo z zelo majhnim tokom \textit{Id} skozi tranzistor, ter posledično velikim območjem napetosti \textit{Ug}, pri kateri tranzistor še prevaja ta tok. Prižig modula prikazuje slika \ref{Negativni_pulz_pwrkey}.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.9\columnwidth,trim=0cm 0.4cm 0.0cm 0.8cm, clip]{Slike/vklop.PNG}
@@ -605,17 +648,17 @@ Pri zagonu modema BG955 smo opazili, da je signal \texttt{PWRKEY} nižje napetos
 \end{figure}
 
 \section{UART napetostni pretvornik}
-Diskretni pretvornik napetosti deluje kot smo si zamislili, vendar pa smo pri testiranju opazili počasne napetostne prehode v smeri iz modula proti števcu. Razlog smo našli v kondenzatorjih, ki so na števčni strani FEM konektorja nameščeni zaradi EMC. Kapacitivnost teh kondenzatorjev odvisno od števca variira med \SIrange{33}{270}{\pico\farad}, ob hitrih prehodih signala \texttt{UART TX} pa lahko v kombinaciji z \SI{10}{\kilo\ohm} \textit{pull-up} upori povzročijo položne pozitivne prehode. Kljub temu, da je pri funkcijskem testu komucikacija potekala normalno smo se odločili  vezje narediti bolj robustno z zamenjavo obstoječih \textit{pull-up} uporov za manjše, \SI{1}{\kilo\ohm} upore.
+Diskretni pretvornik napetosti deluje kot smo si zamislili, vendar pa smo pri testiranju opazili počasne napetostne prehode v smeri iz modula proti števcu. Razlog smo našli v kondenzatorjih, ki so na števčni strani FEM konektorja nameščeni zaradi EMC. Kapacitivnost teh kondenzatorjev odvisno od števca variira med \SI{33}{\pico\farad} in \SI{270}{\pico\farad}, ob hitrih prehodih signala \texttt{UART TX} pa lahko v kombinaciji z \SI{10}{\kilo\ohm} \textit{pull-up} upori povzročijo položne pozitivne prehode. Kljub temu, da je pri funkcijskem testu komunikacija potekala normalno, smo se odločili  vezje narediti bolj robustno z zamenjavo obstoječih \textit{pull-up} uporov za manjše, \SI{1}{\kilo\ohm} upore.
 
 \section{Testiranje napajanja}
-Z elektronskim bremenom smo testirali delovanje tokovne limite. Na glavno napajalno linijo smo z merilnimi vezmi povezali elektornsko breme ter nastavili tok na \SI{2}{A}. Slika \ref{tokovna_limita} prikazuje, kako se 4V napetost na števcu posede minimalno, napetost na modulu pa se sesede. Tokovna limita se zaradi toka skozi njo ter razlike napetosti med vhodom in izhodom segreje ter posledično prekine tok, ki teče skoznjo dokler se ne ohladi dovolj. 
+Z elektronskim bremenom smo testirali delovanje tokovne limite. Na glavno napajalno linijo smo z merilnimi vezmi povezali elektronsko breme ter nastavili tok na \SI{2}{A}. Slika \ref{tokovna_limita} prikazuje, kako se 4V napetost na števcu posede minimalno, napetost na modulu pa se sesede. Tokovna limita se zaradi toka skozi njo ter razlike napetosti med vhodom in izhodom segreje ter posledično prekine tok, ki teče skoznjo dokler se ne ohladi dovolj. 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.9\columnwidth,trim=0cm 0.4cm 0.0cm 0.8cm, clip]{Slike/tokovna_limita2.png}
     \caption{Odziv tokovne limite}
     \label{tokovna_limita}
 \end{figure}
-Modul, opremljen s kartico SIM, se po ustrezni konfiguraciji APN-ja in PDP-konteksta uspešno poveže v mobilno omrežje ter pridobi naslov IP. Po vzpostavitvi povezave modul preklopimo v način delovanja GPRS in prek konzole svojega osebnega računalnika izvajamo ukaz ping proti modemu ter opazujemo napajalno napetost modema. Izmerimo lahko, da se ob t.i. GSM burstu napetost posede, vendar ne pod kritično mejo, ki je definirana v podatkovnem listu modema. Opazili smo, da je tok iz števca v modul manjši od tokovne limite \SI{1}{\ampere}, kar bo potrebno nadaljnje raziskati, verjetno pa je manjši tok posledica feritnih dušilk na števcu in modulu in zmanjšujejo visokofrekvenčne motnje na napajanju. Slika prikazuje porabo toka ter posedanje napetosti na glavni napajalni liniji.
+Modul, opremljen s kartico SIM, se po ustrezni konfiguraciji APN-ja in PDP-konteksta uspešno poveže v mobilno omrežje ter pridobi naslov IP. Po vzpostavitvi povezave modul preklopimo v način delovanja GPRS in prek konzole svojega osebnega računalnika izvajamo ukaz ping proti modemu ter opazujemo napajalno napetost modema. Izmerimo lahko, da se ob t.i. TX burstu napetost posede, vendar ne pod kritično mejo, ki je definirana v podatkovnem listu modema. Opazili smo, da je tok iz števca v modul manjši od tokovne limite \SI{1}{\ampere}, kar bo potrebno nadaljnje raziskati, verjetno pa je manjši tok posledica feritnih dušilk na števcu in modulu, ki so namenjena zmanjševanju visokofrekvenčnih motenj na napajanju. Slika prikazuje porabo toka ter posedanje napetosti na glavni napajalni liniji.
 
 \begin{figure}[!h]
     \centering
@@ -625,28 +668,28 @@ Modul, opremljen s kartico SIM, se po ustrezni konfiguraciji APN-ja in PDP-konte
 \end{figure}
 
 \section{Antenski sklop}
-Meritev antene smo opravili z vektorskim analizatorjem omrežij Megiq VNA0440e. Iz tiskanega vezja smo odstranili modul ter na njegovo mesto prispajkali U.FL konektor, nato pa smo modul vstavili v števec ter ga zaprli s pokorovom,  na katerega smo priklopili ustrezno kalibriran vektorski analizator, s katerimi smo izmerili parameter Return Loss. Vidimo, da imamo v frekvenčnem pasu od približna \SIrange{700}{760}{\mega\hertz} in \SIrange{1700}{1760}{\mega\hertz} \( \mathrm{SWR} > 3 \) (oziroma -10dB Return Loss), kar odraža slabo impedančno prilagoditev antene v tem frekvenčnem območju. Naredili smo prve popravke ter mejno zadostili kriteriju \( \mathrm{SWR} < 3 \), kar prikazuje slika \ref{VNA}. 
+Meritev antene smo opravili z vektorskim analizatorjem omrežij Megiq VNA0440e. Iz tiskanega vezja smo odstranili modul ter na njegovo mesto prispajkali U.FL konektor, nato pa smo modul vstavili v števec ter ga zaprli s pokrovom,  na katerega smo priklopili ustrezno kalibriran vektorski analizator, s katerim smo izmerili parameter Return Loss. Vidimo, da imamo v frekvenčnem pasu od približno \SIrange{700}{760}{\mega\hertz} in \SIrange{1700}{1760}{\mega\hertz} \( \mathrm{SWR} > 3 \) (oziroma \SI{-6}{\decibel} Return Loss), kar odraža slabo impedančno prilagoditev antene v tem frekvenčnem območju. Naredili smo prve popravke ter mejno zadostili kriteriju \( \mathrm{SWR} < 3 \), kar prikazuje slika \ref{VNA}. 
 
 \begin{figure}[h] 
 \centering 
 \includegraphics[width=0.8\columnwidth,trim=0cm 17.0cm 0cm 0.0cm, clip]{Slike/VNA_original.pdf} 
 \includegraphics[width=0.79\columnwidth,trim=0cm 17.0cm 0cm 0.0cm, clip]{Slike/VNA_popravek.pdf} 
-\caption{Meritev SWR s prvotno impedančno prilagoditivijo in po prvem popravku} 
+\caption{Meritev SWR s prvotno impedančno prilagoditivijo ( zgornja slika) in po prvem popravku (spodnja slika)} 
 \label{VNA} 
 \end{figure}
-Z modulom, vgrajen v števec smo izvedli OTA meritive. Pri teh meritvah nas zanimala parametra TRP in TIS. 
+Z modulom, vgrajenim v števec, smo izvedli OTA meritve. Pri teh meritvah sta nas zanimala parametra TRP in TIS. 
 \newline
 TRP predstavlja skupno moč, ki jo komunikacijska naprava izseva v prostor v vseh smereh. Parameter je definiran kot integral prostorske porazdelitve izsevane moči po celotnem prostorskem kotu ter predstavlja merilo oddajne učinkovitosti celotnega sistema. Med meritvijo je komunikacijski modul nastavljen v način neprekinjenega oddajanja, pri čemer se izsevana moč meri v zaporednih prostorskih točkah okoli naprave. Na podlagi tako pridobljenih meritev se z ustreznim prostorskim povprečenjem določi vrednost parametra TRP.
 \newline
-TIS predstavlja povprečno sprejemno občutljivost sistema po celotnem prostorskem kotu in podaja najmanjšo moč sprejetega signala, pri kateri sistem še zagotavlja predpisano kakovost sprejema oziroma zahtevano vrednost bitne napake (BER). Meritev poteka podobno kot pri določanju parametra TRP, le da se v tem primeru meri občutljivost sprejemnika. Na vrednost TIS poleg antene in njene prilagoditve pomembno vpliva tudi delovanje same naprave, saj se lahko elektromagnetne motnje, ki jih ustvarjajo naprava, sklopijo na anteno in s tem poslabšajo sprejemno občutljivost sistema. Oba parametra se izražata v enoti dBm ter sta močno odvisna od sevalnega diagrama uporabljene antene. 
+TIS predstavlja povprečno sprejemno občutljivost sistema po celotnem prostorskem kotu in podaja najmanjšo moč sprejetega signala, pri kateri sistem še zagotavlja predpisano kakovost sprejema oziroma zahtevano vrednost bitne napake (BER, angl. Bit error rate). Meritev poteka podobno kot pri določanju parametra TRP, le da se v tem primeru meri občutljivost sprejemnika. Na vrednost TIS poleg antene in njene prilagoditve pomembno vpliva tudi delovanje same naprave, saj se lahko elektromagnetne motnje, ki jih ustvarjajo naprava, sklopijo na anteno in s tem poslabšajo sprejemno občutljivost sistema. Oba parametra se izražata v enoti dBm ter sta močno odvisna od sevalnega diagrama uporabljene antene. 
 
 Merilno postavitev sestavljajo:
 \begin{itemize}
-    \item komora Minilab 6GHz OTA, v kateri so antenski lok, povezovalna antene ter vsa potrebna radiofrekvenčna tehnika,
-    \item Tester radijskih komunikacijt Rohde\&Schwartz CMW500,
-    \item računalnik, ki krmili CMW500 ter komoro preko ethernet protokola.
+    \item predcertifikacijska OTA-komora Minilab 6 GHz za meritve TRP in TIS,
+    \item tester radijskih komunikacij Rohde\&Schwarz CMW500,
+    \item računalnik, ki krmili CMW500 in komoro preko omrežne povezave.
 \end{itemize}
-Na žalost smo uspeli izvesti le meritve z prvo iteracijo filtra, nato pa je komora zaradi nepričakovane okvare potrebovala servis. V merilni komori smo uporabili v števcu imeli programski opremo ADT, zato rezultati TIS niso popolnoma veljavni, saj med meritvijo večina periferije števca ni delovala ter poslednično ni proizvajala motenj. Rezultate prikazuje tabela \ref{tab:trp_results}, iz njih lahko razberemeo solidno delovanje antenskega sklopa z izjemo frekvenčnega pasu 28, kjer so rezulati slabi, kar je glede na rezulate impedančne prilagoditve pričakovano.
+Na žalost smo uspeli izvesti le meritve z prvo iteracijo filtra, nato pa je komora zaradi nepričakovane okvare potrebovala servis. Merjeni števec je imel naloženo vgrajeno programsko opremo ADT, zato rezultati TIS niso popolnoma veljavni, saj med meritvijo večina periferije števca ni delovala ter posledično ni proizvajala motenj. Rezultate prikazuje tabela \ref{tab:trp_results}, iz njih lahko razberemo solidno delovanje antenskega sklopa, z izjemo frekvenčnega pasu 28, kjer so rezultati slabi, kar je glede na rezultate impedančne prilagoditve pričakovano. Rezultat TRP v obliki sevalnega diagrama prikazuje slika \ref{TRP}.
 \begin{table}[h]
     \centering
     \caption{\label{tab:trp_results} Rezultati meritev TRP v tehnologiji LTE Cat-M}
@@ -675,14 +718,29 @@ Na žalost smo uspeli izvesti le meritve z prvo iteracijo filtra, nato pa je kom
         \hline
     \end{tabular}
 \end{table}
-
-\section{Last gasp}
-Test funkcije last gasp, napetost na kondenzatorju števca po 40s
+\begin{figure}[h] 
+\centering 
+\includegraphics[width=0.8\columnwidth,trim=0cm 0.0cm 0cm 0.0cm, clip]{Slike/band 8 mid chanel trp.pdf} 
+\caption{Sevalni diagram, LTE Cat-M, Band 8, kanal 21475  } 
+\label{TRP} 
+\end{figure}
 \section{Hitra ustavitev modula}
-Ob povezavi v omrežju smo lahko testirali funkcijo \textit{fastshutdown}. Ker nismo imeli točnih informacij o pomankljivosti implementacije te funkcije, smo predpostavili da modul v bliskovni pomnilnik vpisuje podatke ob zagonu ter ob povezavi v omrežje. V programskem jeziku python smo napisali skripto, ki krimili števec z naloženim ADT, preverja odziv modula na \textit{debug UART} ter preko mreže iz osciloskopa odčitava čas, ki ga je modem potreboval da se je ugasnil, kar signalizira z ugasnitvijo statusne LED.
+Ob povezavi v omrežju smo lahko testirali funkcijo \textit{fastshutdown}. Ker nismo imeli točnih informacij o implementaciji te funkcije, smo predpostavili da modul v bliskovni pomnilnik vpisuje podatke ob zagonu ter ob povezavi v omrežje. V programskem jeziku Python smo napisali skripto, ki krmili števec z naloženim ADT, preverja odziv modula na \textit{debug UART} ter preko mreže iz osciloskopa odčitava čas, ki ga je modem potreboval da se je ugasnil kar signalizira z ugasnitvijo statusne LED. Isti signal ter signal na katerem se zgodi negativni prehod, ki narekuje izvedbo funkcije \textit{fastshutdown} opazujemo z osciloskopom, na katerem predhodno nastavimo, da nam ob vsaki sproženi meritvi prebere časovno razliko med obema padajočima signaloma ter jo shrani, nato pa podatek preberemo z osebnim računalnikom. Potek skripte prikazuje slika \ref{testna_skripta}. 
+\begin{figure}[h]
+    \centering
+    \includesvg[inkscapelatex=false, width=0.5\columnwidth]{Slike/Testna_skripta.svg}
+    \caption{Blokovna shema skripte za testiranje funkcije \textit{fastshutdown}}
+    \label{testna_skripta}
+\end{figure}
+Tekom razvoja komunikacijskega modula je Quectel izdal novo verzijo programske opreme, ki je vsebovala popravke za funkcijo \textit{fastshutdown}, zato smo lahko primerjali rezultate, kar prikazuje slika \ref{rezultati}. Vidimo, da so bili popravki učinkoviti, saj se je čas ugašanja modula zmanjšal za kar stokrat.
 
-
-Potek skripte je prikazuje slika 
+\begin{figure}[h]
+    \centering
+    \includesvg[inkscapelatex=false, width=0.7\columnwidth]{Slike/rezultati_fastshutdown.svg}  \vspace{2mm} 
+    \includesvg[inkscapelatex=false, width=0.7\columnwidth]{Slike/rezultati_fastshutdown2.svg}
+    \caption{Primerjava }
+    \label{rezultati}
+\end{figure}
 \cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{Literatura} % vnos literature v kazalo
 
 % 1. način: BibTeX
